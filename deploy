@@ -17,6 +17,6 @@ git clean -d -f
 git pull origin new --rebase
 
 npm ci --audit false
-npm run build
+npm run generate
 
 echo "🚀 Application deployed!"
