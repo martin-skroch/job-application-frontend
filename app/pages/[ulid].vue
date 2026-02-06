@@ -3,7 +3,9 @@ import type { Application, Personal } from '~/types'
 import personalJson from '~/data/personal.json';
 
 const { apiUrl, apiKey } = useRuntimeConfig().public;
-const { ulid, isUlid } = useUlid();
+const { ulid, isUlid, deleteUlid } = useUlid();
+const router = useRouter();
+const route = useRoute();
 
 const application = ref<Application | null>(null);
 const personal = ref<Personal[]>(personalJson);
@@ -38,6 +40,10 @@ onBeforeMount(async () => {
         application.value = await $fetch(`api/application/${ulid.value}`, options);
     } catch (e) {
         error.value = e instanceof Error ? e.message : `The job application could not be loaded: ${ulid.value}`;
+
+        deleteUlid();
+
+        await router.replace('/');
     } finally {
         loading.value = false;
     }

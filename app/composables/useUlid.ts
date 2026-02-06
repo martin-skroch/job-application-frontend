@@ -15,9 +15,21 @@ export const useUlid = () => {
         }
     };
 
+    const saveUlid = (value: ULID) => {
+        if (isUlid(value)) {
+            localStorage.setItem('ulid', value);
+        }
+    };
+
+    const deleteUlid = () => {
+        localStorage.removeItem('ulid');
+    };
+
     return {
         isUlid,
         setUlid,
+        saveUlid,
+        deleteUlid,
         ulid: readonly(ulid),
     };
 };

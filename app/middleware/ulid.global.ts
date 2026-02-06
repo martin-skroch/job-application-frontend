@@ -5,7 +5,7 @@ export default defineNuxtRouteMiddleware((to, from) => {
         return;
     }
 
-    const { setUlid } = useUlid();
+    const { setUlid, saveUlid } = useUlid();
 
     const routeUlid: string = (to.params.ulid as string)?.toUpperCase();
     const storedUlid: string = localStorage.getItem('ulid') as string;
@@ -14,7 +14,7 @@ export default defineNuxtRouteMiddleware((to, from) => {
 
     if (isValid(routeUlid)) {
         finalUlid = routeUlid.toLowerCase();
-        localStorage.setItem('ulid', finalUlid);
+        saveUlid(finalUlid);
     } else if (isValid(storedUlid)) {
         finalUlid = storedUlid.toLowerCase();
     }
