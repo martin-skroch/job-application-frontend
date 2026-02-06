@@ -12,15 +12,15 @@ export interface Profile {
     id: ULID,
     name: string,
     image: string | null,
-    address: string | null,
-    post_code: string | null,
-    location: string | null,
+    address?: string | null,
+    post_code?: string | null,
+    location?: string | null,
     birthdate: string | null,
-    birthplace: string | null,
-    age: number | null,
+    birthplace?: string | null,
+    age?: number | null,
     phone: string | null,
     email: string | null,
-    website: string | null,
+    website?: string | null,
 }
 
 export interface Experience {
