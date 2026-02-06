@@ -115,7 +115,7 @@ onBeforeMount(async () => {
                 <div v-for="entry in personal" v-bind:key="entry.id"
                     class="group flex items-center even:flex-row-reverse gap-24">
                     <div class="w-2/6">
-                        <NuxtImg :src="`/images/${entry.image}`" :alt="entry.image" class="size-full aspect-4/5 object-cover bg-primary rounded-2xl border border-primary shadow-[0_0.5rem_0_0_var(--color-primary)]" />
+                        <img :src="`/images/${entry.image}`" :alt="entry.image" class="size-full aspect-4/5 object-cover bg-primary rounded-2xl border border-primary shadow-[0_0.5rem_0_0_var(--color-primary)]" />
                     </div>
                     <div class="w-4/6 group-even:text-end space-y-4 font-serif leading-normal">
                         <h3 class="text-7xl text-primary font-bold" v-if="entry.title">{{ entry.title }}</h3>
