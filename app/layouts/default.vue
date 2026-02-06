@@ -7,5 +7,5 @@
 
     <!-- <AppFooter /> -->
 
-    <!-- <MouseTracker /> -->
+    <MouseTracker />
 </template>

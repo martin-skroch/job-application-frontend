@@ -96,7 +96,7 @@ onBeforeMount(async () => {
             </a> -->
         </AppSection>
 
-        <AppSection id="werdegang" class="bg-primary text-secondary relative overflow-x-hidden">
+        <AppSection id="werdegang" class="bg-primary text-secondary relative overflow-x-hidden dark-mouse-tracker">
             <AppHeading level="2" class="text-7xl text-center">Werdegang</AppHeading>
 
             <div class="space-y-32">
