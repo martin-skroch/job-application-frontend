@@ -1,0 +1,44 @@
+[
+    {
+        "id": 1,
+        "image": "2024-08-08-10-57-28-001.jpg",
+        "title": "Lorem ipsum dolor sit amet consectetur",
+        "description": "Iusto a, autem obcaecati nisi eveniet repellat corrupti assumenda culpa itaque soluta, optio maiores minima dicta fugiat dolorem! Ut amet optio architecto."
+    },
+    {
+        "id": 2,
+        "image": "PXL_20240928_134219546.jpg",
+        "title": "Lorem ipsum dolor sit amet consectetur",
+        "description": "Iusto a, autem obcaecati nisi eveniet repellat corrupti assumenda culpa itaque soluta, optio maiores minima dicta fugiat dolorem! Ut amet optio architecto."
+    },
+    {
+        "id": 3,
+        "image": "PXL_20230727_115201076.jpg",
+        "title": "Lorem ipsum dolor sit amet consectetur",
+        "description": "Iusto a, autem obcaecati nisi eveniet repellat corrupti assumenda culpa itaque soluta, optio maiores minima dicta fugiat dolorem! Ut amet optio architecto."
+    },
+    {
+        "id": 4,
+        "image": "PXL_20250816_114543563.MP.jpg",
+        "title": "Lorem ipsum dolor sit amet consectetur",
+        "description": "Iusto a, autem obcaecati nisi eveniet repellat corrupti assumenda culpa itaque soluta, optio maiores minima dicta fugiat dolorem! Ut amet optio architecto."
+    },
+    {
+        "id": 5,
+        "image": "2024-08-10-16-23-34-001.jpg",
+        "title": "Lorem ipsum dolor sit amet consectetur",
+        "description": "Iusto a, autem obcaecati nisi eveniet repellat corrupti assumenda culpa itaque soluta, optio maiores minima dicta fugiat dolorem! Ut amet optio architecto."
+    },
+    {
+        "id": 6,
+        "image": "2022-06-07-19-21-33-Holger.jpg",
+        "title": "Lorem ipsum dolor sit amet consectetur",
+        "description": "Iusto a, autem obcaecati nisi eveniet repellat corrupti assumenda culpa itaque soluta, optio maiores minima dicta fugiat dolorem! Ut amet optio architecto."
+    },
+    {
+        "id": 7,
+        "image": "2022-06-07-13-38-41-Denny.jpg",
+        "title": "Lorem ipsum dolor sit amet consectetur",
+        "description": "Iusto a, autem obcaecati nisi eveniet repellat corrupti assumenda culpa itaque soluta, optio maiores minima dicta fugiat dolorem! Ut amet optio architecto."
+    }
+]

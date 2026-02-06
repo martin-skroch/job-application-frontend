@@ -1,7 +1,5 @@
 <template>
-    <footer class="py-8 lg:py-16 xl:py-24 bg-neutral-950 border-t border-neutral-800">
-        <AppContainer>
-            Footer
-        </AppContainer>
-    </footer>
+    <AppSection tag="footer" class="bg-secondary text-center border-t border-zinc-700">
+        Footer
+    </AppSection>
 </template>

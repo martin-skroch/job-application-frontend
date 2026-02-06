@@ -6,5 +6,6 @@
     --color-secondary: var(--color-background);
 
     --font-sans: "Alexandria", sans-serif;
-    --font-serif: "Josefin Slab", serif;
+    --font-serif: "Cormorant Infant", serif;
+    --font-display: "Josefin Slab", sans-serif;
 }

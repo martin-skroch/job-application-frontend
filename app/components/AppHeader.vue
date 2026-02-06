@@ -1,7 +1,20 @@
+<script lang="ts" setup>
+    const links = [
+        {
+            label: 'Start',
+            to: {name: 'index'},
+        },
+    ];
+</script>
+
 <template>
-    <header class="fixed z-50 top-0 left-0 right-0">
-        <AppContainer>
-            <AppNavigation />
-        </AppContainer>
-    </header>
+    <AppSection tag="header">
+        <nav>
+            <ul class="list-none flex gap-4 p-0">
+                <li v-for="link in links" v-bind:key="link.label">
+                    <NuxtLink :to="link.to">{{ link.label }}</NuxtLink>
+                </li>
+            </ul>
+        </nav>
+    </AppSection>
 </template>

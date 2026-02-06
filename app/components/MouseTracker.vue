@@ -1,12 +1,12 @@
-<script setup>
+<script lang="ts" setup>
 import { gsap } from 'gsap';
 
-const mouseTracker = useTemplateRef('mouse-tracker');
+const mouseTracker = useTemplateRef<HTMLDivElement>('mouse-tracker');
 
-const hidden = ref(false);
-const dark = ref(false);
+const hidden = ref<Boolean>(false);
+const dark = ref<Boolean>(false);
 
-let context;
+let context: gsap.Context;
 
 onMounted(() => {
     gsap.set(mouseTracker.value, {
@@ -23,31 +23,31 @@ onMounted(() => {
         let xTo = gsap.quickTo(mouseTracker.value, 'x', options);
         let yTo = gsap.quickTo(mouseTracker.value, 'y', options);
 
-        document.body.addEventListener('mousemove', (e) => {
-            if (mouseTracker.value === null) {
+        document.body.addEventListener('mousemove', (event: MouseEvent) => {
+            if (mouseTracker.value === null || !(event.target instanceof HTMLElement)) {
                 return;
             }
 
-            if (e.target.closest('.hidden-mouse-tracker') !== null) {
+            if (event.target.closest('.hidden-mouse-tracker') !== null) {
                 hidden.value = true;
             } else {
                 hidden.value = false;
             }
 
-            if (e.target.closest('.dark-mouse-tracker') !== null && e.target.closest('.light-mouse-tracker') === null) {
+            if (event.target.closest('.dark-mouse-tracker') !== null && event.target.closest('.light-mouse-tracker') === null) {
                 dark.value = true;
             } else {
                 dark.value = false;
             }
 
-            if (e.target.closest('a')?.nodeName.toLowerCase() === 'a') {
+            if (event.target.closest('a')?.nodeName.toLowerCase() === 'a') {
                 mouseTracker.value.setAttribute('data-hover', 'a');
             } else {
                 mouseTracker.value.removeAttribute('data-hover');
             }
 
-            xTo(e.clientX);
-            yTo(e.clientY);
+            xTo(event.clientX);
+            yTo(event.clientY);
         });
     });
 });

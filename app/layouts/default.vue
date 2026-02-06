@@ -1,4 +1,11 @@
 <template>
-    <div><slot /></div>
-    <MouseTracker />
+    <NuxtRouteAnnouncer />
+
+    <!-- <AppHeader /> -->
+
+    <main><slot /></main>
+
+    <!-- <AppFooter /> -->
+
+    <!-- <MouseTracker /> -->
 </template>
