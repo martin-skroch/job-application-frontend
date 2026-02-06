@@ -5,7 +5,5 @@
     --color-primary: #B9903E;
     --color-secondary: var(--color-background);
 
-    --font-sans: "Alexandria", sans-serif;
-    --font-serif: "Cormorant Infant", serif;
     --font-display: "Josefin Slab", sans-serif;
 }

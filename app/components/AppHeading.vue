@@ -1,14 +1,14 @@
 <script lang="ts" setup>
 const props = defineProps({
-    level: {
-        type: [Number, String],
-        default: 1,
-    }
+    tag: {
+        type: String,
+        default: 'div'
+    },
 })
 </script>
 
 <template>
-    <component :is="'h' + props.level" class="font-serif ">
+    <component :is="props.tag" class="font-display">
         <slot />
     </component>
 </template>

@@ -11,16 +11,16 @@ export interface Application {
 export interface Profile {
     id: ULID,
     name: string,
-    image: string | null,
-    address?: string | null,
-    post_code?: string | null,
-    location?: string | null,
-    birthdate: string | null,
-    birthplace?: string | null,
-    age?: number | null,
-    phone: string | null,
-    email: string | null,
-    website?: string | null,
+    image?: string,
+    address?: string,
+    post_code?: string,
+    location?: string,
+    birthdate?: string,
+    birthplace?: string,
+    age?: number,
+    phone?: string,
+    email?: string,
+    website?: string,
 }
 
 export interface Experience {

@@ -1,33 +1,36 @@
 <script lang="ts" setup>
-import type { Profile } from '~/types';
-
-const props = defineProps<{profile?: Profile}>();
+const props = defineProps<{
+    email?: string,
+    phone?: string,
+}>();
 </script>
 
 <style scoped>
 @reference '../assets/css/main.css';
 
 a {
-    @apply flex items-center gap-1.5 cursor-pointer hover:text-primary;
+    @apply flex items-center gap-1.5 cursor-pointer;
+}
+
+a:hover {
+    @apply text-primary;
 }
 </style>
 
 <template>
-    <nav class="flex items-center justify-end gap-8 font-serif text-sm tracking-widest">
-        <!-- <NuxtLink :to="{ name: 'test' }">
-            Test
-        </NuxtLink> -->
+    <nav class="flex items-center justify-end gap-8 text-sm tracking-widest">
+        <!-- <NuxtLink :to="{ name: 'test' }">Test</NuxtLink> -->
 
         <a href="https://github.com/martin-skroch" target="_blank" rel="noopener" title="Mein Profil auf GitHub">
-            <Icon name="ph:github-logo-thin" /> GitHub
+            <Icon name="ph:github-logo-duotone" /> GitHub
         </a>
 
-        <a v-if="props.profile?.phone" :href="'tel:' + props.profile.phone">
-            <Icon name="ph:phone-thin" /> Telefon
+        <a v-if="props.phone" :href="'tel:' + props.phone" title="Ruf gerne durch">
+            <Icon name="ph:phone-duotone" /> Telefon
         </a>
 
-        <a v-if="props.profile?.email" :href="'mailto:' + props.profile.email">
-            <Icon name="ph:at-thin" /> E-Mail
+        <a v-if="props.email" :href="'mailto:' + props.email" title="Schreib mir gerne">
+            <Icon name="ph:at-duotone" /> E-Mail
         </a>
     </nav>
 </template>

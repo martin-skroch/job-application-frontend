@@ -63,17 +63,15 @@ onBeforeMount(async () => {
 
     <div v-if="!loading">
         <AppSection id="einleitung" class="min-h-dvh flex flex-col justify-end relative" spacing="">
-            <div class="font-serif font-medium text-[16rem] leading-none text-primary/30">
-                Moin
-            </div>
+            <AppHeading class="font-bold text-[16rem] leading-none text-primary/30">Moin</AppHeading>
 
-            <div class="font-display font-light text-3xl leading-normal -mt-22">
+            <div class="font-display text-3xl leading-relaxed -mt-28">
                 <p>
-                    Mein Name ist {{ application?.profile.name }}, ich bin {{ application?.profile.age }} Jahre alt und ich brenne für die Technologien des Internets.
+                    Mein Name ist {{ application?.profile.name }}, ich bin {{ application?.profile.age }} Jahre alt und brenne für die Technologien des Internets.
                     Wirf einen Blick auf meinen <a href="#werdegang" class="text-primary">Werdegang</a>,
                     wenn du wissen möchtest, wie sich diese Leidenschaft in meinem Berufsleben widerspiegelt.
                     <!-- Ergänzend dazu findest du eine ehrliche und selbstkritische Einschätzung meiner <a href="#faehigkeiten" class="text-primary">Fähigkeiten</a>. -->
-                    Einen Eindruck meines Privatlebens erhältst du unter <a href="#persoenliches" class="text-primary">Persönliches</a>.
+                    <!-- Einen Eindruck meines Privatlebens erhältst du unter <a href="#persoenliches" class="text-primary">Persönliches</a>. -->
                 </p>
             </div>
 
@@ -82,22 +80,22 @@ onBeforeMount(async () => {
             <div class="flex items-center gap-6">
                 <div class="flex items-center gap-3 grow">
                     <AppAvatar :image="application?.profile.image ?? ''" :name="application?.profile.name ?? ''" class="size-8" />
-                    <AppHeading level="1" class="font-medium" v-if="application?.profile.name">{{ application.profile.name }}</AppHeading>
+                    <AppHeading tag="h1" class="font-medium" v-if="application?.profile.name">{{ application.profile.name }}</AppHeading>
                 </div>
 
-                <AppMetaNavigation :profile="application?.profile" />
+                <AppMetaNavigation :email="application?.profile.email" :phone="application?.profile.phone" />
             </div>
 
-            <!-- <a href="#werdegang" role="button" class="absolute bottom-0 left-1/2 -translate-x-1/2 p-4">
+            <a href="#werdegang" role="button" class="absolute bottom-0 left-1/2 -translate-x-1/2 p-4">
                 <svg class="stroke-current opacity-30 w-12 p-2 -m-2 h-auto stroke-[0.04em] animate-bounce" width="29.712"
                     height="8.8547" version="1.1" viewBox="0 0 29.712 8.8547" xmlns="http://www.w3.org/2000/svg">
                     <path d="m29.476 0.44055-14.62 7.8467-14.62-7.8467" fill="none" stroke="currentColor" />
                 </svg>
-            </a> -->
+            </a>
         </AppSection>
 
         <AppSection id="werdegang" class="bg-primary text-secondary relative overflow-x-hidden dark-mouse-tracker">
-            <AppHeading level="2" class="text-7xl text-center">Werdegang</AppHeading>
+            <AppHeading tag="h2" class="text-7xl text-center">Werdegang</AppHeading>
 
             <div class="space-y-32">
                 <AppExperience v-for="(experience, index) in application?.experiences" :key="experience.id" :experience="experience" :index="index" />
@@ -105,11 +103,11 @@ onBeforeMount(async () => {
         </AppSection>
 
         <!-- <AppSection id="faehigkeiten">
-            <AppHeading level="2" class="text-7xl text-center">Fähigkeiten</AppHeading>
+            <AppHeading tag="h2" class="text-7xl text-center">Fähigkeiten</AppHeading>
         </AppSection> -->
 
         <!-- <AppSection id="persoenliches">
-            <AppHeading level="2" class="text-7xl text-center">Persönliches</AppHeading>
+            <AppHeading tag="h2" class="text-7xl text-center">Persönliches</AppHeading>
 
             <div class="space-y-4 sm:space-y-8 md:space-y-12 lg:space-y-16 xl:space-y-20">
                 <div v-for="entry in personal" v-bind:key="entry.id"
@@ -125,10 +123,10 @@ onBeforeMount(async () => {
             </div>
         </AppSection> -->
 
-        <AppSection id="danke" class="min-h-dvh flex flex-col justify-end relative select-none" spacing="">
-            <div class="font-serif font-medium text-[14rem] leading-none text-primary/30">Danke</div>
+        <AppSection id="danke" class="min-h-dvh flex flex-col justify-end" spacing="">
+            <AppHeading class="font-bold text-[16rem] leading-none text-primary/30">Danke</AppHeading>
 
-            <div class="font-display font-light text-3xl leading-normal -mt-20">
+            <div class="font-display text-3xl leading-relaxed -mt-28">
                 <p>Ich freue mich sehr darauf, euch persönlich kennenzulernen und einen Eindruck davon zu bekommen, wie ihr  arbeitet. Solltet ihr Fragen haben, meldet euch gern bei mir. Ich würde mich freuen von euch zu hören.</p>
             </div>
 
@@ -137,10 +135,10 @@ onBeforeMount(async () => {
             <div class="flex items-center gap-6">
                 <div class="flex items-center gap-3 grow">
                     <AppAvatar :image="application?.profile.image ?? ''" :name="application?.profile.name ?? ''" class="size-8" />
-                    <AppHeading level="1" class="font-medium" v-if="application?.profile.name">{{ application.profile.name }}</AppHeading>
+                    <AppHeading tag="h1" class="font-medium" v-if="application?.profile.name">{{ application.profile.name }}</AppHeading>
                 </div>
 
-                <AppMetaNavigation :profile="application?.profile" />
+                <AppMetaNavigation :email="application?.profile.email" :phone="application?.profile.phone" />
             </div>
         </AppSection>
     </div>

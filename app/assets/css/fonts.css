@@ -1,15 +1,15 @@
 @font-face {
-    font-family: 'Bellefair';
+    font-family: 'Josefin Slab';
     font-style: normal;
-    font-weight: 200 700;
+    font-weight: 100 700;
     font-display: swap;
-    src: url('../fonts/Bellefair/Bellefair-Regular.ttf') format('woff2');
+    src: url('../fonts/josefin-slab/JosefinSlab-VariableFont_wght.ttf') format('woff2');
 }
 
 @font-face {
-    font-family: 'Exo 2';
-    font-style: normal;
-    font-weight: 200 700;
+    font-family: 'Josefin Slab';
+    font-style: italic;
+    font-weight: 100 700;
     font-display: swap;
-    src: url('../fonts/Exo-2/Exo2-VariableFont_wght.ttf') format('woff2');
+    src: url('../fonts/josefin-slab/JosefinSlab-Italic-VariableFont_wght.ttf') format('woff2');
 }

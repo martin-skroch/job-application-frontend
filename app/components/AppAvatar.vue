@@ -6,5 +6,5 @@ const props = defineProps<{
 </script>
 
 <template>
-    <img :src="image" :alt="'Profilfoto von ' + name" class="inline rounded-full border-[0.1em] border-primary object-cover" />
+    <img :src="image" :alt="'Profilfoto von ' + name" class="inline rounded-full border-[0.1rem] border-primary object-cover" />
 </template>
