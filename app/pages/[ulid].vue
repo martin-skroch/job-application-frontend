@@ -81,7 +81,7 @@ onBeforeMount(async () => {
 
             <div class="flex items-center gap-6">
                 <div class="flex items-center gap-3 grow">
-                    <AppAvatar class="size-8" alt="Foto im Profil von Martin Skroch" />
+                    <AppAvatar :image="application?.profile.image ?? ''" :name="application?.profile.name ?? ''" class="size-8" />
                     <AppHeading level="1" class="font-medium" v-if="application?.profile.name">{{ application.profile.name }}</AppHeading>
                 </div>
 
@@ -108,7 +108,7 @@ onBeforeMount(async () => {
             <AppHeading level="2" class="text-7xl text-center">Fähigkeiten</AppHeading>
         </AppSection> -->
 
-        <AppSection id="persoenliches">
+        <!-- <AppSection id="persoenliches">
             <AppHeading level="2" class="text-7xl text-center">Persönliches</AppHeading>
 
             <div class="space-y-4 sm:space-y-8 md:space-y-12 lg:space-y-16 xl:space-y-20">
@@ -123,22 +123,20 @@ onBeforeMount(async () => {
                     </div>
                 </div>
             </div>
-        </AppSection>
+        </AppSection> -->
 
         <AppSection id="danke" class="min-h-dvh flex flex-col justify-end relative select-none" spacing="">
             <div class="font-serif font-medium text-[14rem] leading-none text-primary/30">Danke</div>
 
             <div class="font-display font-light text-3xl leading-normal -mt-20">
-                <p>Ich freue mich sehr darauf, euch persönlich kennenzulernen und einen Eindruck davon zu bekommen, wie ihr
-                    arbeitet. Solltet ihr Fragen haben, meldet euch gern bei mir. Ich würde mich freuen von euch zu hören..
-                </p>
+                <p>Ich freue mich sehr darauf, euch persönlich kennenzulernen und einen Eindruck davon zu bekommen, wie ihr  arbeitet. Solltet ihr Fragen haben, meldet euch gern bei mir. Ich würde mich freuen von euch zu hören.</p>
             </div>
 
             <AppSeparator />
 
             <div class="flex items-center gap-6">
                 <div class="flex items-center gap-3 grow">
-                    <AppAvatar class="size-8" alt="Foto im Profil von Martin Skroch" />
+                    <AppAvatar :image="application?.profile.image ?? ''" :name="application?.profile.name ?? ''" class="size-8" />
                     <AppHeading level="1" class="font-medium" v-if="application?.profile.name">{{ application.profile.name }}</AppHeading>
                 </div>
 
