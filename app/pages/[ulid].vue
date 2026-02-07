@@ -1,14 +1,11 @@
 <script lang="ts" setup>
-import type { Application, Personal } from '~/types'
-import personalJson from '~/data/personal.json';
+import type { Application } from '~/types'
 
 const { apiUrl, apiKey } = useRuntimeConfig().public;
 const { ulid, isUlid, deleteUlid } = useUlid();
 const router = useRouter();
-const route = useRoute();
 
 const application = ref<Application | null>(null);
-const personal = ref<Personal[]>(personalJson);
 const loading = ref<boolean>(false);
 const error = ref<string | null>(null);
 
@@ -18,7 +15,7 @@ watch(loading, (loading) => {
     }
 });
 
-onBeforeMount(async () => {
+onMounted(async () => {
     if (!isUlid()) {
         error.value = 'The job application could not be loaded.';
         return;
