@@ -75,7 +75,7 @@ onMounted(async () => {
                     Wirf einen Blick auf meinen <a href="#werdegang" class="text-primary">Werdegang</a>,
                     wenn du wissen möchtest, wie sich diese Leidenschaft in meinem Berufsleben widerspiegelt.
                     <!-- Ergänzend dazu findest du eine ehrliche und selbstkritische Einschätzung meiner <a href="#faehigkeiten" class="text-primary">Fähigkeiten</a>. -->
-                    <!-- Einen Eindruck meines Privatlebens erhältst du unter <a href="#persoenliches" class="text-primary">Persönliches</a>. -->
+                    Einen Eindruck meines Privatlebens erhältst du unter <a href="#persoenliches" class="text-primary">Persönliches</a>.
                 </p>
             </div>
 
