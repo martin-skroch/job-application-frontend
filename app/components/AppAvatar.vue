@@ -1,10 +1,7 @@
 <script lang="ts" setup>
-const props = defineProps<{
-    image?: string,
-    name?: string,
-}>();
+const props = defineProps<{name?: string}>();
 </script>
 
 <template>
-    <img v-if="image" :src="image" :alt="'Profilfoto von ' + name" class="inline rounded-full border-[0.1rem] border-primary object-cover" />
+    <img src="~/assets/images/profile-image.webp" :alt="'Profilfoto von ' + name" class="inline rounded-full border-[0.1rem] border-primary object-cover" />
 </template>

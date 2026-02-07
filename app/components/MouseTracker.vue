@@ -3,6 +3,7 @@ const mouseTracker = useTemplateRef<HTMLElement>('mouse-tracker');
 const hidden = ref<Boolean>(false);
 const dark = ref<Boolean>(false);
 const { $gsap } = useNuxtApp();
+const interactiveTags = ['a', 'button'];
 
 useGsapContext(() => {
     $gsap.set(mouseTracker.value, {
@@ -29,14 +30,18 @@ useGsapContext(() => {
             hidden.value = false;
         }
 
-        if (event.target.closest('.dark-mouse-tracker') !== null && event.target.closest('.light-mouse-tracker') === null) {
+        const target = event.target as HTMLElement;
+
+        if (target.closest('.dark-mouse-tracker') !== null && target.closest('.light-mouse-tracker') === null) {
             dark.value = true;
         } else {
             dark.value = false;
         }
 
-        if (event.target.closest('a')?.nodeName.toLowerCase() === 'a') {
-            mouseTracker.value.setAttribute('data-hover', 'a');
+        const targetTag = interactiveTags.find(tag => target.closest(tag)?.nodeName.toLowerCase() === tag);
+
+        if (targetTag) {
+            mouseTracker.value.setAttribute('data-hover', targetTag);
         } else {
             mouseTracker.value.removeAttribute('data-hover');
         }
