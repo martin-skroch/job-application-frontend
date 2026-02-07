@@ -73,7 +73,8 @@ onBeforeMount(async () => {
 
             <div class="font-display text-3xl leading-relaxed -mt-28">
                 <p>
-                    Mein Name ist {{ application?.profile.name }}, ich bin {{ application?.profile.age }} Jahre alt und brenne für die Technologien des Internets.
+                    Mein Name ist {{ application?.profile.name }}<template v-if="application?.profile.age">, ich bin {{ application?.profile.age }} Jahre alt</template>
+                    und <template v-if="!application?.profile.age">ich</template> brenne für die Technologien des Internets.
                     Wirf einen Blick auf meinen <a href="#werdegang" class="text-primary">Werdegang</a>,
                     wenn du wissen möchtest, wie sich diese Leidenschaft in meinem Berufsleben widerspiegelt.
                     <!-- Ergänzend dazu findest du eine ehrliche und selbstkritische Einschätzung meiner <a href="#faehigkeiten" class="text-primary">Fähigkeiten</a>. -->
@@ -85,7 +86,7 @@ onBeforeMount(async () => {
 
             <div class="flex items-center gap-6">
                 <div class="flex items-center gap-3 grow">
-                    <AppAvatar :image="application?.profile.image ?? ''" :name="application?.profile.name ?? ''" class="size-8" />
+                    <AppAvatar :image="application?.profile.image" :name="application?.profile.name" class="size-8" />
                     <AppHeading tag="h1" class="font-medium" v-if="application?.profile.name">{{ application.profile.name }}</AppHeading>
                 </div>
 
@@ -101,7 +102,7 @@ onBeforeMount(async () => {
         </AppSection>
 
         <AppSection id="werdegang" class="bg-primary text-secondary relative overflow-x-hidden dark-mouse-tracker">
-            <AppHeading tag="h2" class="text-7xl text-center">Werdegang</AppHeading>
+            <AppHeading tag="h2" class="text-[clamp(2rem,6dvw,5rem)] text-center">Berufliche Laufbahn</AppHeading>
 
             <div class="space-y-32">
                 <AppExperience v-for="(experience, index) in application?.experiences" :key="experience.id" :experience="experience" :index="index" />
@@ -109,25 +110,27 @@ onBeforeMount(async () => {
         </AppSection>
 
         <!-- <AppSection id="faehigkeiten">
-            <AppHeading tag="h2" class="text-7xl text-center">Fähigkeiten</AppHeading>
+            <AppHeading tag="h2" class="text-[clamp(2rem,6dvw,5rem)] text-center">Meine Fähigkeiten</AppHeading>
         </AppSection> -->
 
-        <!-- <AppSection id="persoenliches">
-            <AppHeading tag="h2" class="text-7xl text-center">Persönliches</AppHeading>
+        <AppSection id="persoenliches" class="border-b-8 border-primary">
+            <AppHeading tag="h2" class="text-[clamp(2rem,6dvw,5rem)] text-center">So bin ich privat</AppHeading>
 
             <div class="space-y-4 sm:space-y-8 md:space-y-12 lg:space-y-16 xl:space-y-20">
-                <div v-for="entry in personal" v-bind:key="entry.id"
+
+                <div v-for="impression in application?.impressions" v-bind:key="impression.id"
                     class="group flex items-center even:flex-row-reverse gap-24">
                     <div class="w-2/6">
-                        <img :src="`/images/${entry.image}`" :alt="entry.image" class="size-full aspect-4/5 object-cover bg-primary rounded-2xl border border-primary shadow-[0_0.5rem_0_0_var(--color-primary)]" />
+                        <img :src="impression.image" :alt="impression.title" class="size-full aspect-4/5 object-cover bg-primary rounded-2xl border border-primary shadow-[0_0.5rem_0_0_var(--color-primary)]" />
                     </div>
                     <div class="w-4/6 group-even:text-end space-y-4 font-serif leading-normal">
-                        <h3 class="text-7xl text-primary font-bold" v-if="entry.title">{{ entry.title }}</h3>
-                        <p class="text-3xl">{{ entry.description }}</p>
+                        <h3 class="text-7xl text-primary font-bold" v-if="impression.title">{{ impression.title }}</h3>
+                        <p class="text-3xl">{{ impression.description }}</p>
                     </div>
                 </div>
+
             </div>
-        </AppSection> -->
+        </AppSection>
 
         <AppSection id="danke" class="min-h-dvh flex flex-col justify-end" spacing="">
             <AppHeading class="font-bold text-[16rem] leading-none text-primary/30">Danke</AppHeading>

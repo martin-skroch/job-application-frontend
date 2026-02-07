@@ -6,6 +6,7 @@ export interface Application {
     profile: Profile,
     experiences: Experience[],
     skills: Skill[],
+    impressions: Impression[],
 }
 
 export interface Profile {
@@ -41,6 +42,13 @@ export interface Skill {
     name: string,
     info: string | null,
     rating: number,
+}
+
+export interface Impression {
+    id: ULID,
+    image: string,
+    title?: string,
+    description?: string,
 }
 
 export interface Personal {
