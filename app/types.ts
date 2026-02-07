@@ -50,10 +50,3 @@ export interface Impression {
     title?: string,
     description?: string,
 }
-
-export interface Personal {
-    id: number,
-    image: string,
-    title: string | null,
-    description: string,
-}
