@@ -100,7 +100,7 @@ onMounted(async () => {
             </a>
         </AppSection>
 
-        <AppSection v-if="false" id="werdegang" class="bg-primary text-secondary relative overflow-x-hidden dark-mouse-tracker">
+        <AppSection id="werdegang" class="bg-primary text-secondary relative overflow-x-hidden dark-mouse-tracker">
             <AppHeading tag="h2" class="text-[clamp(3rem,7dvw,5rem)] text-center">Berufliche Laufbahn</AppHeading>
 
             <div class="space-y-20 xl:space-y-32">
@@ -112,7 +112,7 @@ onMounted(async () => {
             <AppHeading tag="h2" class="text-[clamp(3rem,7dvw,5rem)] text-center">Meine Fähigkeiten</AppHeading>
         </AppSection> -->
 
-        <AppSection v-if="false" id="persoenliches" class="border-b-8 border-primary">
+        <AppSection id="persoenliches" class="border-b-8 border-primary">
             <AppHeading tag="h2" class="text-[clamp(3rem,7dvw,5rem)] text-center">So bin ich privat</AppHeading>
 
             <div class="space-y-20 xl:space-y-32">
@@ -120,7 +120,7 @@ onMounted(async () => {
             </div>
         </AppSection>
 
-        <AppSection v-if="false" id="danke" class="min-h-dvh flex flex-col justify-end" spacing="">
+        <AppSection id="danke" class="min-h-dvh flex flex-col justify-end" spacing="">
             <AppHeading class="font-bold text-[clamp(7rem,20dvw,16rem)] leading-none text-primary/30">Danke</AppHeading>
 
             <div class="font-display text-[clamp(1.5rem,3dvw,1.875rem)] leading-normal -mt-[clamp(4.5rem,11dvw,9rem)]">
