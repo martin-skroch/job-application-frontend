@@ -1,6 +1,8 @@
 <script lang="ts" setup>
 import type { Application } from '~/types'
 
+definePageMeta({middleware: ['ulid']});
+
 const { apiUrl, apiKey } = useRuntimeConfig().public;
 const { ulid, isUlid, deleteUlid } = useUlid();
 const router = useRouter();
