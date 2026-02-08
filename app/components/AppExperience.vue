@@ -39,20 +39,21 @@ if (!exit.value.isValid()) {
 
 <template>
     <div class="perspective-distant perspective-origin-center">
-        <div ref="experience" class="grid grid-cols-4 transform-3d">
 
-            <div class="col-span-1 px-4 flex flex-col justify-between items-end gap-4">
-                <div class="font-sans text-5xl flex items-center gap-1" v-if="props.experience.exit">
+        <div ref="experience" class="grid grid-cols-4 gap-[clamp(1.5rem,3dvw,2rem)] transform-3d">
+
+            <div class="col-span-1 flex flex-col justify-between items-end gap-4">
+                <div class="font-sans text-[clamp(1.5rem,4dvw,3rem)] flex items-center gap-1" v-if="props.experience.exit">
                     <span class="font-light">{{ exit.format('MM') }}</span>
                     <span class="font-extralight">/</span>
                     <span class="font-bold">{{ exit.format('YYYY') }}</span>
                 </div>
 
-                <div v-else class="text-5xl">
+                <div v-else class="text-[clamp(1.5rem,4dvw,3rem)]">
                     heute
                 </div>
 
-                <div class="grow relative border-r border-dashed border-secondary flex flex-col justify-center me-7 py-4">
+                <div class="grow relative border-r border-dashed border-secondary flex flex-col justify-center me-[clamp(1.5rem,3dvw,2rem)] py-4">
                     <Icon name="ph:caret-up-fill" class="absolute -top-3 -right-[0.5px] translate-x-1/2" />
 
                     <div class="text-xs [writing-mode:vertical-rl] rotate-180 text-right">
@@ -60,22 +61,22 @@ if (!exit.value.isValid()) {
                     </div>
                 </div>
 
-                <div class="font-sans text-5xl flex items-center gap-1">
+                <div class="font-sans text-[clamp(1.5rem,4dvw,3rem)] flex items-center gap-1">
                     <span class="font-light">{{ entry.format('MM') }}</span>
                     <span class="font-extralight">/</span>
                     <span class="font-bold">{{ entry.format('YYYY') }}</span>
                 </div>
             </div>
 
-            <div class="col-span-3 px-4">
-                <div class="min-h-full border border-secondary shadow-[0_0.5rem_0_0_var(--color-secondary)] rounded-2xl">
+            <div class="col-span-3">
+                <div class="min-h-full border border-secondary shadow-[0_0.5rem_0_0_var(--color-secondary)] mb-2 rounded-2xl">
 
-                    <header class="col-span-2 space-y-2 bg-secondary/10 border-b border-secondary px-8 py-4 rounded-t-2xl">
-                        <AppHeading tag="h3" v-if="props.experience.institution" class="text-4xl" :title="props.experience.institution">
+                    <header class="col-span-2 space-y-2 bg-secondary/10 border-b border-secondary px-[clamp(1.5rem,3dvw,2rem)] py-4 rounded-t-2xl">
+                        <AppHeading tag="h3" v-if="props.experience.institution" class="text-[clamp(1.5rem,3dvw,2.25rem)] font-medium" :title="props.experience.institution">
                             {{ props.experience.institution }}
                         </AppHeading>
 
-                        <div class="text-xs font-medium flex items-center gap-6">
+                        <div class="text-xs font-medium flex max-md:flex-col md:items-center gap-1 md:gap-6">
                             <span v-if="props.experience.location" class="flex items-center gap-1.5">
                                 <Icon name="ph-map-trifold-duotone" /> {{ props.experience.location }}
                             </span>
@@ -85,13 +86,13 @@ if (!exit.value.isValid()) {
                         </div>
                     </header>
 
-                    <div class="grid grid-cols-2 gap-8 p-8">
+                    <div class="grid lg:grid-cols-2 gap-[clamp(1.5rem,3dvw,2rem)] p-[clamp(1.5rem,3dvw,2rem)]">
 
                         <div class="text-sm leading-relaxed">
                             <p>{{ props.experience.description }}</p>
                         </div>
 
-                        <div class="col-span-1 space-y-8">
+                        <div class="col-span-1 space-y-[clamp(1.5rem,3dvw,2rem)]">
                             <div v-if="skills.length > 0" class="space-y-3">
                                 <h4 class="flex items-center gap-2">
                                     <Icon name="ph:brackets-curly-duotone" /> Technologien

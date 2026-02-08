@@ -6,11 +6,11 @@ const props = defineProps({
     },
     padding: {
         type: String,
-        default: 'py-4 sm:py-8 md:py-12 lg:py-16 xl:py-20',
+        default: 'py-12 lg:py-16 xl:py-24',
     },
     spacing: {
         type: String,
-        default: 'space-y-8 lg:space-y-16 xl:space-y-24',
+        default: 'space-y-12 lg:space-y-16 xl:space-y-24',
     },
     container: {
         type: Boolean,

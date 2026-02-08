@@ -8,7 +8,7 @@ const props = defineProps({
 </script>
 
 <template>
-    <component :is="props.tag" class="font-display">
+    <component :is="props.tag" class="font-display leading-tight">
         <slot />
     </component>
 </template>

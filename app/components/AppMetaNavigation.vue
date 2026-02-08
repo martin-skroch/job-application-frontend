@@ -22,15 +22,18 @@ a:hover {
         <!-- <NuxtLink :to="{ name: 'test' }">Test</NuxtLink> -->
 
         <a href="https://github.com/martin-skroch" target="_blank" rel="noopener" title="Mein Profil auf GitHub">
-            <Icon name="ph:github-logo-duotone" /> GitHub
+            <Icon name="ph:github-logo-duotone" />
+            <span class="max-md:sr-only">GitHub</span>
         </a>
 
         <a v-if="props.phone" :href="'tel:' + props.phone" title="Ruf gerne durch">
-            <Icon name="ph:phone-duotone" /> Telefon
+            <Icon name="ph:phone-duotone" />
+            <span class="max-md:sr-only">Telefon</span>
         </a>
 
         <a v-if="props.email" :href="'mailto:' + props.email" title="Schreib mir gerne">
-            <Icon name="ph:at-duotone" /> E-Mail
+            <Icon name="ph:at-duotone" />
+            <span class="max-md:sr-only">E-Mail</span>
         </a>
     </nav>
 </template>
