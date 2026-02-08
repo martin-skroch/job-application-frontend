@@ -86,7 +86,7 @@ onMounted(async () => {
             <div class="flex items-center gap-6">
                 <div class="flex items-center gap-3 grow">
                     <AppAvatar :image="application?.profile.image" :name="application?.profile.name" class="size-8" />
-                    <AppHeading tag="h1" class="font-medium" v-if="application?.profile.name">{{ application.profile.name }}</AppHeading>
+                    <AppHeading tag="h1" class="font-medium" v-if="application?.profile.name">{{ application?.profile.name }}</AppHeading>
                 </div>
 
                 <AppMetaNavigation :email="application?.profile.email" :phone="application?.profile.phone" />
@@ -101,33 +101,22 @@ onMounted(async () => {
         </AppSection>
 
         <AppSection id="werdegang" class="bg-primary text-secondary relative overflow-x-hidden dark-mouse-tracker">
-            <AppHeading tag="h2" class="text-[clamp(2rem,6dvw,5rem)] text-center">Berufliche Laufbahn</AppHeading>
+            <AppHeading tag="h2" class="text-[clamp(3rem,7dvw,5rem)] text-center">Berufliche Laufbahn</AppHeading>
 
-            <div class="space-y-32">
+            <div class="space-y-20 xl:space-y-32">
                 <AppExperience v-for="(experience, index) in application?.experiences" :key="experience.id" :experience="experience" :index="index" />
             </div>
         </AppSection>
 
         <!-- <AppSection id="faehigkeiten">
-            <AppHeading tag="h2" class="text-[clamp(2rem,6dvw,5rem)] text-center">Meine Fähigkeiten</AppHeading>
+            <AppHeading tag="h2" class="text-[clamp(3rem,7dvw,5rem)] text-center">Meine Fähigkeiten</AppHeading>
         </AppSection> -->
 
         <AppSection id="persoenliches" class="border-b-8 border-primary">
-            <AppHeading tag="h2" class="text-[clamp(2rem,6dvw,5rem)] text-center">So bin ich privat</AppHeading>
+            <AppHeading tag="h2" class="text-[clamp(3rem,7dvw,5rem)] text-center">So bin ich privat</AppHeading>
 
-            <div class="space-y-4 sm:space-y-8 md:space-y-12 lg:space-y-16 xl:space-y-20">
-
-                <div v-for="impression in application?.impressions" v-bind:key="impression.id"
-                    class="group flex items-center even:flex-row-reverse gap-24">
-                    <div class="w-2/6">
-                        <img :src="impression.image" :alt="impression.title" class="size-full aspect-4/5 object-cover bg-primary rounded-2xl border border-primary shadow-[0_0.5rem_0_0_var(--color-primary)]" />
-                    </div>
-                    <div class="w-4/6 group-even:text-end space-y-4 font-serif leading-normal">
-                        <h3 class="text-7xl text-primary font-bold" v-if="impression.title">{{ impression.title }}</h3>
-                        <p class="text-3xl">{{ impression.description }}</p>
-                    </div>
-                </div>
-
+            <div class="space-y-20 xl:space-y-32">
+                <AppImpression v-for="impression in application?.impressions" :impression="impression" v-bind:key="impression.id" />
             </div>
         </AppSection>
 
@@ -143,7 +132,7 @@ onMounted(async () => {
             <div class="flex items-center gap-6">
                 <div class="flex items-center gap-3 grow">
                     <AppAvatar :image="application?.profile.image ?? ''" :name="application?.profile.name ?? ''" class="size-8" />
-                    <AppHeading tag="h1" class="font-medium" v-if="application?.profile.name">{{ application.profile.name }}</AppHeading>
+                    <AppHeading tag="h1" class="font-medium" v-if="application?.profile.name">{{ application?.profile.name }}</AppHeading>
                 </div>
 
                 <AppMetaNavigation :email="application?.profile.email" :phone="application?.profile.phone" />

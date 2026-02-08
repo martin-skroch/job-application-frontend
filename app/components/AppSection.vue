@@ -10,7 +10,7 @@ const props = defineProps({
     },
     spacing: {
         type: String,
-        default: 'space-y-4 sm:space-y-8 md:space-y-12 lg:space-y-16 xl:space-y-20',
+        default: 'space-y-8 lg:space-y-16 xl:space-y-24',
     },
     container: {
         type: Boolean,
@@ -21,7 +21,7 @@ const props = defineProps({
 
 <template>
     <component :is="props.tag" :class="props.padding">
-        <div :class="`max-w-7xl mx-auto px-4 md:px-8 lg:px-16 xl:px-24 ${props.spacing}`" v-if="props.container">
+        <div :class="`max-w-7xl mx-auto px-8 lg:px-16 xl:px-24 ${props.spacing}`" v-if="props.container">
             <slot />
         </div>
 
