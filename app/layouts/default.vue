@@ -1,5 +1,5 @@
 <template>
     <NuxtRouteAnnouncer />
     <main><slot /></main>
-    <MouseTracker />
+    <!-- <MouseTracker /> -->
 </template>

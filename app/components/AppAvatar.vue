@@ -1,7 +1,7 @@
 <script lang="ts" setup>
-const props = defineProps<{name?: string}>();
+const profile = useAppConfig().profile;
 </script>
 
 <template>
-    <img src="~/assets/images/profile-image.webp" :alt="'Profilfoto von ' + name" class="inline rounded-full border-[0.1rem] border-primary object-cover" />
+    <img :src="profile.image" :alt="'Profilfoto von ' + profile.name" class="inline rounded-full border-[0.1rem] border-primary object-cover" />
 </template>

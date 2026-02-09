@@ -21,7 +21,7 @@ const props = defineProps({
 
 <template>
     <component :is="props.tag" :class="props.padding">
-        <div :class="`max-w-7xl mx-auto px-8 lg:px-16 xl:px-24 ${props.spacing}`" v-if="props.container">
+        <div v-if="props.container" :class="`max-w-7xl mx-auto px-8 lg:px-16 xl:px-24 ${props.spacing}`">
             <slot />
         </div>
 

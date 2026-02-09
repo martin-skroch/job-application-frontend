@@ -32,4 +32,19 @@
             -1px -1px
         ;
     }
+
+    a:not(.no-hover),
+    .as-link:not(.no-hover) {
+        @apply border-b border-dotted border-current inline-flex items-center gap-1 leading-none;
+    }
+
+    a:not(.no-hover):any-link,
+    .as-link:not(.no-hover) {
+        @apply cursor-pointer;
+    }
+
+    a:not(.no-hover):hover,
+    .as-link:not(.no-hover):hover {
+        @apply text-primary border-primary;
+    }
 }

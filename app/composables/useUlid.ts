@@ -1,21 +1,21 @@
-import { type ULID, isValid } from "ulid";
+import { isValid } from "ulid";
 
 export const useUlid = () => {
-    const ulid = useState<ULID | null>('ulid', () => null);
+    const ulid = useState<string | null>('ulid', () => null);
 
-    const isUlid = (value: ULID | null = null) => {
-        const v: ULID | null = value ?? ulid.value;
+    const isUlid = (value: string | null = null) => {
+        const v: string | null = value ?? ulid.value;
 
         return typeof v === 'string' && isValid(v);
     };
 
-    const setUlid = (value: ULID) => {
+    const setUlid = (value: string) => {
         if (isUlid(value)) {
             ulid.value = value;
         }
     };
 
-    const saveUlid = (value: ULID) => {
+    const saveUlid = (value: string) => {
         if (isUlid(value)) {
             localStorage.setItem('ulid', value);
         }

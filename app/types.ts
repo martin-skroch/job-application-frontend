@@ -1,7 +1,5 @@
-import type { ULID } from "ulid"
-
 export interface Application {
-    id: ULID,
+    id: string,
     title: string,
     profile: Profile,
     experiences: Experience[],
@@ -10,7 +8,7 @@ export interface Application {
 }
 
 export interface Profile {
-    id: ULID,
+    id?: string,
     name: string,
     image?: string,
     address?: string,
@@ -25,7 +23,7 @@ export interface Profile {
 }
 
 export interface Experience {
-    id: ULID,
+    id: string,
     position: string | null,
     institution: string | undefined,
     location: string | null,
@@ -38,14 +36,14 @@ export interface Experience {
 }
 
 export interface Skill {
-    id: ULID,
+    id: string,
     name: string,
     info: string | null,
     rating: number,
 }
 
 export interface Impression {
-    id: ULID,
+    id: string,
     image: string,
     title?: string,
     description?: string,
