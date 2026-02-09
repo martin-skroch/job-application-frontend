@@ -16,7 +16,7 @@ a:not(:hover) {
 
 <template>
     <nav class="flex items-center justify-end gap-6 text-sm tracking-widest">
-        <NuxtLink :to="{ name: 'test' }">Test</NuxtLink>
+        <!-- <NuxtLink :to="{ name: 'test' }">Test</NuxtLink> -->
 
         <a href="https://github.com/martin-skroch" target="_blank" rel="noopener" title="Mein Profil auf GitHub">
             <Icon name="ph:github-logo-duotone" />
