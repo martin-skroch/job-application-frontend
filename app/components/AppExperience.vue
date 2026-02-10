@@ -80,8 +80,8 @@ if (!exit.value.isValid()) {
                             <span v-if="props.experience.location" class="flex items-center gap-1.5">
                                 <Icon name="ph-map-trifold-duotone" /> {{ props.experience.location }}
                             </span>
-                            <span v-if="props.experience.type" class="flex items-center gap-1.5">
-                                <Icon name="ph-monitor-duotone" /> {{ props.experience.type }}
+                            <span v-if="props.experience.office" class="flex items-center gap-1.5">
+                                <Icon name="ph-monitor-duotone" /> {{ props.experience.office }}
                             </span>
                         </div>
                     </header>

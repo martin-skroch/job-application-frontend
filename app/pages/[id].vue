@@ -92,10 +92,18 @@ onMounted(async () => {
         </AppHero>
 
         <AppSection id="werdegang" class="bg-primary text-secondary relative overflow-x-hidden dark-mouse-tracker">
-            <AppHeading tag="h2" class="text-[clamp(3rem,7dvw,5rem)] text-center">Berufliche Laufbahn</AppHeading>
+            <AppHeading tag="h2" class="text-[clamp(3rem,7dvw,5rem)] text-center">Werdegang</AppHeading>
 
             <div class="space-y-20 xl:space-y-32">
                 <AppExperience v-for="(experience, index) in application?.experiences" :key="experience.id" :experience="experience" :index="index" />
+            </div>
+        </AppSection>
+
+        <AppSection id="werdegang" class="bg-primary text-secondary relative overflow-x-hidden dark-mouse-tracker">
+            <AppHeading tag="h2" class="text-[clamp(3rem,7dvw,5rem)] text-center">Fortbildung</AppHeading>
+
+            <div class="space-y-20 xl:space-y-32">
+                <AppExperience v-for="(education, index) in application?.educations" :key="education.id" :experience="education" :index="index" />
             </div>
         </AppSection>
 

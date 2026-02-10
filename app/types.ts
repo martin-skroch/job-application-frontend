@@ -3,6 +3,7 @@ export interface Application {
     title: string,
     profile: Profile,
     experiences: Experience[],
+    educations: Experience[],
     skills: Skill[],
     impressions: Impression[],
 }
@@ -24,12 +25,12 @@ export interface Profile {
 
 export interface Experience {
     id: string,
-    position: string | null,
-    institution: string | undefined,
-    location: string | null,
-    type: string | null,
     entry: string,
     exit: string | null,
+    institution: string | undefined,
+    position: string | null,
+    location: string | null,
+    office?: string,
     duration: string,
     description: string | null,
     skills: readonly Skill[],
