@@ -4,6 +4,7 @@ export const useProfile = () => {
     const config = useAppConfig();
 
     const profile = useState<Profile>('profile', () => config.profile);
+    const github = useState<string>('github', () => config.github);
 
     const setProfile = (value: Profile) => {
         profile.value = value;
@@ -54,5 +55,6 @@ export const useProfile = () => {
         profile,
         email,
         phone,
+        github,
     };
 };

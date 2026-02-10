@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-const { profile, email, phone } = useProfile();
+const { profile, email, phone, github } = useProfile();
 </script>
 
 <style scoped>
@@ -20,7 +20,7 @@ a:not(:hover),
     <nav class="flex items-center justify-end gap-6 text-sm tracking-widest">
         <!-- <NuxtLink :to="{ name: 'test' }">Test</NuxtLink> -->
 
-        <a href="https://github.com/martin-skroch" target="_blank" rel="noopener" title="Mein Profil auf GitHub">
+        <a :href="github" target="_blank" rel="noopener" title="Mein Profil auf GitHub">
             <Icon name="ph:github-logo-duotone" />
             <span class="max-md:sr-only">GitHub</span>
         </a>

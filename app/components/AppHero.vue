@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-const profile = useAppConfig().profile;
+const { profile, github } = useAppConfig();
 </script>
 
 <style scoped>
@@ -32,7 +32,7 @@ nav button:hover {
                 </div>
 
                 <nav class="flex gap-4 items-center text-sm leading-none">
-                    <a href="https://github.com/martin-skroch" target="_blank" rel="noopener">
+                    <a :href="github" target="_blank" rel="noopener">
                         <Icon name="ph:github-logo-duotone" /> GitHub
                     </a>
 

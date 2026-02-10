@@ -33,14 +33,14 @@
         ;
     }
 
-    a:not(.no-hover),
-    .as-link:not(.no-hover) {
-        @apply border-b border-dotted border-current inline-flex items-center gap-1 leading-none;
+    a:any-link,
+    .as-link {
+        @apply inline-flex items-center gap-1 leading-none cursor-pointer whitespace-nowrap;
     }
 
-    a:not(.no-hover):any-link,
+    a:not(.no-hover),
     .as-link:not(.no-hover) {
-        @apply cursor-pointer;
+        @apply border-b border-dotted border-current;
     }
 
     a:not(.no-hover):hover,

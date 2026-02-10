@@ -13,5 +13,6 @@ const birth = moment(profile.birthdate);
 profile.age = moment.duration(today.diff(birth)).years();
 
 export default defineAppConfig({
-    profile: profile
+    profile: profile,
+    github: 'https://github.com/martin-skroch',
 })

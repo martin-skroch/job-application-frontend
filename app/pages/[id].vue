@@ -3,7 +3,7 @@ import type { Application, Profile } from '~/types'
 
 definePageMeta({middleware: ['id']});
 
-const { profile, setProfile } = useProfile();
+const { profile, setProfile, email, phone, github } = useProfile();
 const { apiUrl, apiKey } = useRuntimeConfig().public;
 const { id, isId, deleteId } = useId();
 const router = useRouter();
@@ -71,7 +71,69 @@ onMounted(async () => {
     </Transition>
 
     <div v-if="!loading">
-        <AppHero id="einleitung" class="min-h-dvh flex flex-col justify-end relative">
+        <AppSection id="einleitung" class="min-h-dvh flex flex-col justify-center items-center relative" spacing="">
+            <div class="text-center space-y-8">
+                <AppAvatar class="shrink-0 size-32 border-6 mx-auto" />
+
+                <div>
+                    <AppHeading tag="div" class="font-light md:text-lg">Moin, mein Name ist</AppHeading>
+                    <AppHeading tag="h1" class="font-bold text-4xl md:text-5xl">{{ profile.name }}</AppHeading>
+                    <AppHeading tag="h1" class="font-light text-xl md:text-2xl">Full Stack Web Developer</AppHeading>
+                </div>
+
+                <p class="max-w-lg">Exercitationem, illum laboriosam accusantium obcaecati voluptates blanditiis totam, vero voluptate asperiores, veritatis qui.</p>
+
+                <nav class="inline-flex items-center gap-8 text-base">
+                    <a class="gap-2 no-hover" :href="github" target="_blank" rel="noopener">
+                        <Icon name="ph:github-logo-duotone" /> GitHub
+                    </a>
+
+                    <button class="as-link flex items-center gap-2 no-hover" @click="email">
+                        <Icon name="ph:at-duotone" /> E-Mail
+                    </button>
+
+                    <button class="as-link flex items-center gap-2 no-hover" @click="phone">
+                        <Icon name="ph:phone-duotone" /> Phone
+                    </button>
+                </nav>
+            </div>
+
+            <a href="#werdegang" role="button" class="absolute bottom-0 left-1/2 -translate-x-1/2 p-4 no-hover">
+                <svg class="stroke-current opacity-30 w-12 p-2 -m-2 h-auto stroke-[0.04em] animate-bounce" viewBox="0 0 29.712 8.8547" xmlns="http://www.w3.org/2000/svg">
+                    <path d="m29.476 0.44055-14.62 7.8467-14.62-7.8467" fill="none" stroke="currentColor" />
+                </svg>
+            </a>
+
+            <!-- <div class="bg-black/30 rounded-full max-w-4xl p-4 grid grid-cols-4 gap-3">
+                <AppAvatar class="col-span-1" />
+
+                <div class="col-span-3 flex flex-col justify-center gap-3 p-4">
+                    <AppHeading tag="h1" class="font-bold text-7xl leading-none!">{{ profile.name }}</AppHeading>
+
+                    <div class="flex gap-4">
+                        <AppHeading tag="div" class="font-light text-3xl leading-none">{{ profile.age }} Jahre</AppHeading>
+                        <span class="text-4xl leading-none">&bull;</span>
+                        <AppHeading tag="h2" class="font-light text-3xl leading-none">Full Stack Web Developer</AppHeading>
+                    </div>
+
+                    <nav class="flex gap-4 items-center text-sm leading-none">
+                        <a :href="github" target="_blank" rel="noopener">
+                            <Icon name="ph:github-logo-duotone" /> GitHub
+                        </a>
+
+                        <a href="#" v-bind:click.prevent="profile.email">
+                            <Icon name="ph:at-duotone" /> E-Mail
+                        </a>
+
+                        <button class="as-link">
+                            <Icon name="ph:question-duotone" /> Bewerbung anfordern
+                        </button>
+                    </nav>
+                </div>
+            </div> -->
+        </AppSection>
+
+        <AppHero v-if="false" id="einleitung" class="min-h-dvh flex flex-col justify-end relative">
             <AppHeading class="font-bold text-[clamp(7rem,20dvw,16rem)] leading-none text-primary/30">Moin</AppHeading>
 
             <div class="font-display text-[clamp(1.5rem,3dvw,1.875rem)] leading-normal -mt-[clamp(4.5rem,11dvw,9rem)]">
