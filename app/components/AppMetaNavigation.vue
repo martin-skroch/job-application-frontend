@@ -23,7 +23,7 @@ nav button:hover {
         </button>
 
         <button v-if="profile.phone" @click="phone" title="Ruf mich gerne an">
-            <Icon name="ph:phone-duotone" /> Phone
+            <Icon name="ph:phone-duotone" /> Telefon
         </button>
 
         <a v-if="github" class="no-hover" :href="github" target="_blank" rel="noopener" title="Mein Profil auf GitHub">

@@ -71,7 +71,9 @@ onMounted(async () => {
     </Transition>
 
     <div v-if="!loading">
-        <AppHero id="einleitung" :application="application" />
+        <AppHero id="einleitung" scroll-target="werdegang">
+            {{ application?.text }}
+        </AppHero>
 
         <AppSection id="werdegang" heading="Werdegang" class="bg-primary text-secondary relative overflow-x-hidden dark-mouse-tracker">
             <div class="space-y-20 xl:space-y-32">
@@ -85,7 +87,9 @@ onMounted(async () => {
             </div>
         </AppSection>
 
-        <AppSection v-if="false" heading="Fähigkeiten" id="faehigkeiten"></AppSection>
+        <AppSection v-if="false" heading="Fähigkeiten" id="faehigkeiten">
+
+        </AppSection>
 
         <AppSection id="persoenliches" heading="Was ich privat so treibe">
             <div class="space-y-20 xl:space-y-32">
