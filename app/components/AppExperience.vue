@@ -40,31 +40,32 @@ if (!exit.value.isValid()) {
 <template>
     <div class="perspective-distant perspective-origin-center">
 
-        <div ref="experience" class="grid lg:grid-cols-4 gap-[clamp(1.5rem,3dvw,2rem)] transform-3d">
+        <div ref="experience" class="grid lg:grid-cols-4 gap-[clamp(1rem,4dvw,3rem)] transform-3d">
 
-            <div class="lg:col-span-1 flex lg:flex-col justify-between items-end gap-6 lg:gap-4">
-                <div class="font-sans text-[clamp(1.5rem,4dvw,3rem)] flex items-center gap-1" v-if="props.experience.exit">
+            <div class="lg:col-span-1 flex lg:flex-col justify-between items-center lg:items-end gap-2 md:gap-4 lg:gap-6">
+                <div class="font-sans text-[clamp(1rem,4dvw,3rem)] flex items-center gap-1" v-if="props.experience.exit">
                     <span class="font-light">{{ exit.format('MM') }}</span>
                     <span class="font-extralight">/</span>
                     <span class="font-bold">{{ exit.format('YYYY') }}</span>
                 </div>
 
-                <div v-else class="text-[clamp(1.5rem,4dvw,3rem)]">
+                <div v-else class="text-[clamp(1.2rem,4dvw,3rem)]">
                     heute
                 </div>
 
-                <div class="grow relative max-lg:border-b lg:border-r border-dashed border-secondary flex flex-col justify-center max-lg:mb-[clamp(1rem,2dvw,1.5rem)] lg:me-[clamp(1.5rem,3dvw,2rem)] max-lg:px-4 lg:py-4">
-                    <Icon
-                        name="ph:caret-right-fill"
-                        class="absolute max-lg:-top-[0.5px] max-lg:-right-3 lg:-top-3 lg:-right-[0.5px] translate-y-1/2 lg:translate-x-1/2 lg:-rotate-90"
-                    />
+                <div class="grow flex max-lg:border-b lg:border-r border-dashed border-secondary relative after:absolute after:w-1.5 after:h-2 after:right-0 after:bottom-0 after:translate-y-1/2 after:bg-secondary after:[clip-path:polygon(0_0,0%_100%,100%_50%)]">
+                    <div class="grow text-xs text-center whitespace-nowrap lg:[writing-mode:vertical-rl] lg:rotate-180">{{ props.experience.duration }}</div>
+                </div>
+
+                <!-- <div class="grow relative max-lg:border-b lg:border-r border-dashed border-secondary flex flex-col justify-center max-lg:mb-[clamp(1rem,2dvw,1.5rem)] lg:me-[clamp(1.5rem,3dvw,2rem)] max-lg:px-4 lg:py-4">
+                    <Icon name="ph:caret-right-fill" class="absolute max-lg:-top-[0.5px] max-lg:-right-3 lg:-top-3 lg:-right-[0.5px] translate-y-1/2 lg:translate-x-1/2 lg:-rotate-90" />
 
                     <div class="text-xs lg:[writing-mode:vertical-rl] lg:rotate-180 text-center lg:text-right whitespace-nowrap">
                         {{ props.experience.duration }}
                     </div>
-                </div>
+                </div> -->
 
-                <div class="font-sans text-[clamp(1.5rem,4dvw,3rem)] flex items-center gap-1">
+                <div class="font-sans text-[clamp(1rem,4dvw,3rem)] flex items-center gap-1">
                     <span class="font-light">{{ entry.format('MM') }}</span>
                     <span class="font-extralight">/</span>
                     <span class="font-bold">{{ entry.format('YYYY') }}</span>
@@ -75,11 +76,11 @@ if (!exit.value.isValid()) {
                 <div class="min-h-full border border-secondary shadow-[0_0.5rem_0_0_var(--color-secondary)] mb-2 rounded-2xl">
 
                     <header class="col-span-2 space-y-2 bg-secondary/10 border-b border-secondary px-[clamp(1.5rem,3dvw,2rem)] py-4 rounded-t-2xl">
-                        <AppHeading tag="h3" v-if="props.experience.institution" class="text-[clamp(1.5rem,3dvw,2.25rem)] font-medium" :title="props.experience.institution">
+                        <AppHeading tag="h3" v-if="props.experience.institution" class="text-[clamp(1.3rem,3dvw,2.25rem)] font-medium" :title="props.experience.institution">
                             {{ props.experience.institution }}
                         </AppHeading>
 
-                        <div class="text-xs font-medium flex max-md:flex-col md:items-center gap-1 md:gap-6">
+                        <div class="text-xs font-medium flex items-center gap-4">
                             <span v-if="props.experience.location" class="flex items-center gap-1.5">
                                 <Icon name="ph-map-trifold-duotone" /> {{ props.experience.location }}
                             </span>

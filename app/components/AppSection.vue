@@ -15,17 +15,23 @@ const props = defineProps({
     container: {
         type: Boolean,
         default: true,
-    }
+    },
+    heading: {
+        type: String,
+        default: null,
+    },
 });
 </script>
 
 <template>
     <component :is="props.tag" :class="props.padding">
         <div v-if="props.container" :class="`max-w-7xl mx-auto px-8 lg:px-16 xl:px-24 ${props.spacing}`">
+            <AppHeading v-if="props.heading" tag="h2" class="text-[clamp(2.5rem,7dvw,5rem)] text-center">{{ props.heading }}</AppHeading>
             <slot />
         </div>
 
         <template v-else>
+            <AppHeading v-if="props.heading" tag="h2" class="text-[clamp(2.5rem,7dvw,5rem)] text-center">{{ props.heading }}</AppHeading>
             <slot />
         </template>
     </component>

@@ -1,63 +1,33 @@
 <script lang="ts" setup>
-const { profile, github } = useAppConfig();
+import type { Application } from '~/types';
+
+const props = defineProps<{application?: Application | null}>()
+
+const { id } = useApplication();
+const { profile } = useProfile();
 </script>
 
-<style scoped>
-@reference '../assets/css/main.css';
-
-nav a,
-nav button {
-    @apply bg-white/10 border-0 px-3 py-2 rounded-full transition-all;
-}
-
-nav a:hover,
-nav button:hover {
-    @apply duration-300 hover:bg-white/30 text-current;
-}
-</style>
-
 <template>
-    <AppSection spacing="">
+    <AppSection id="einleitung" class="min-h-dvh flex flex-col justify-center items-center relative" spacing="">
+        <div class="text-center space-y-8">
+            <AppAvatar class="shrink-0 size-32 border-6 mx-auto" />
 
-        <!-- <div class="bg-black/30 rounded-full max-w-4xl p-4 grid grid-cols-4 gap-3">
-            <AppAvatar class="col-span-1" />
-
-            <div class="col-span-3 flex flex-col justify-center gap-3 p-4">
-                <AppHeading tag="h1" class="font-bold text-7xl leading-none!">{{ profile.name }}</AppHeading>
-
-                <div class="flex gap-4">
-                    <AppHeading tag="div" class="font-light text-3xl leading-none">{{ profile.age }} Jahre</AppHeading>
-                    <span class="text-4xl leading-none">&bull;</span>
-                    <AppHeading tag="h2" class="font-light text-3xl leading-none">Full Stack Web Developer</AppHeading>
-                </div>
-
-                <nav class="flex gap-4 items-center text-sm leading-none">
-                    <a :href="github" target="_blank" rel="noopener">
-                        <Icon name="ph:github-logo-duotone" /> GitHub
-                    </a>
-
-                    <a href="#" v-bind:click.prevent="profile.email">
-                        <Icon name="ph:at-duotone" /> E-Mail
-                    </a>
-
-                    <button class="as-link">
-                        <Icon name="ph:question-duotone" /> Bewerbung anfordern
-                    </button>
-                </nav>
+            <div>
+                <AppHeading tag="div" class="font-light md:text-lg">Moin, mein Name ist</AppHeading>
+                <AppHeading tag="h1" class="font-bold text-4xl md:text-5xl text-primary">{{ profile.name }}</AppHeading>
+                <AppHeading tag="h2" class="font-light text-xl md:text-2xl">Full Stack Web Developer</AppHeading>
             </div>
-        </div> -->
 
-        <slot></slot>
-
-        <AppSeparator />
-
-        <div class="flex items-center gap-6">
-            <div class="flex items-center gap-3 grow">
-                <AppAvatar class="size-8" />
-                <AppHeading tag="h1" class="font-medium">{{ profile.name }}</AppHeading>
-            </div>
+            <p class="max-w-lg" v-if="application?.text">{{ application.text }}</p>
+            <p class="max-w-lg" v-else>Assumenda, quibusdam sequi dolorem aperiam laboriosam provident odit praesentium odio necessitatibus natus ducimus magnam animi.</p>
 
             <AppMetaNavigation />
         </div>
+
+        <a v-if="id" href="#werdegang" role="button" class="absolute bottom-0 left-1/2 -translate-x-1/2 p-4 no-hover">
+            <svg class="stroke-current opacity-30 w-12 p-2 -m-2 h-auto stroke-[0.04em] animate-bounce" viewBox="0 0 29.712 8.8547" xmlns="http://www.w3.org/2000/svg">
+                <path d="m29.476 0.44055-14.62 7.8467-14.62-7.8467" fill="none" stroke="currentColor" />
+            </svg>
+        </a>
     </AppSection>
 </template>

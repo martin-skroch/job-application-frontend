@@ -5,34 +5,29 @@ const { profile, email, phone, github } = useProfile();
 <style scoped>
 @reference '../assets/css/main.css';
 
-a,
-.as-link {
-    @apply p-1;
+nav a,
+nav button {
+    @apply transition-colors inline-flex items-center gap-1.5 leading-none cursor-pointer whitespace-nowrap rounded-md py-2 px-3;
 }
 
-a:not(:hover),
-.as-link:not(:hover) {
-    @apply border-transparent;
+nav a:hover,
+nav button:hover {
+    @apply bg-primary text-secondary;
 }
 </style>
 
 <template>
-    <nav class="flex items-center justify-end gap-6 text-sm tracking-widest">
-        <!-- <NuxtLink :to="{ name: 'test' }">Test</NuxtLink> -->
+    <nav class="inline-flex flex-wrap items-center justify-center gap-2 lg:gap-4 text-base">
+        <button v-if="profile.email" @click="email" title="Schreibe mir eine E-Mail">
+            <Icon name="ph:at-duotone" /> E-Mail
+        </button>
 
-        <a :href="github" target="_blank" rel="noopener" title="Mein Profil auf GitHub">
-            <Icon name="ph:github-logo-duotone" />
-            <span class="max-md:sr-only">GitHub</span>
+        <button v-if="profile.phone" @click="phone" title="Ruf mich gerne an">
+            <Icon name="ph:phone-duotone" /> Phone
+        </button>
+
+        <a v-if="github" class="no-hover" :href="github" target="_blank" rel="noopener" title="Mein Profil auf GitHub">
+            <Icon name="ph:github-logo-duotone" /> GitHub
         </a>
-
-        <button class="as-link" v-if="profile.phone" @click="phone" title="Ruf gerne durch">
-            <Icon name="ph:phone-duotone" />
-            <span class="max-md:sr-only">Telefon</span>
-        </button>
-
-        <button class="as-link" v-if="profile.email" @click="email" title="Schreib mir gerne">
-            <Icon name="ph:at-duotone" />
-            <span class="max-md:sr-only">E-Mail</span>
-        </button>
     </nav>
 </template>

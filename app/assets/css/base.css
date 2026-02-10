@@ -9,10 +9,8 @@
 
     body::before {
         --pattern-color: var(--color-zinc-700);
-        --pattern-opacity: 0.1;
 
-        opacity: var(--pattern-opacity);
-        background-attachment: fixed;
+        opacity: 0.1;
         background-image:
             linear-gradient(var(--pattern-color) 2px, transparent 2px),
             linear-gradient(90deg, var(--pattern-color) 2px, transparent 2px),
