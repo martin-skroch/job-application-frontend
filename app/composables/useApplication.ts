@@ -1,4 +1,4 @@
-export const useId = () => {
+export const useApplication = () => {
     const id = useState<string | null>('id', () => null);
 
     const isId = (value: string | null = null) => {

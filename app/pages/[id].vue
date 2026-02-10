@@ -5,7 +5,7 @@ definePageMeta({middleware: ['id']});
 
 const { profile, setProfile, email, phone, github } = useProfile();
 const { apiUrl, apiKey } = useRuntimeConfig().public;
-const { id, isId, deleteId } = useId();
+const { id, isId } = useApplication();
 const router = useRouter();
 
 const application = ref<Application | null>(null);

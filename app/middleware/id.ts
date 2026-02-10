@@ -3,7 +3,7 @@ export default defineNuxtRouteMiddleware((to, from) => {
         return;
     }
 
-    const { isId, setId, saveId } = useId();
+    const { isId, setId, saveId } = useApplication();
 
     const routeId: string = (to.params.id as string);
     const storedId: string = localStorage.getItem('id') as string;
