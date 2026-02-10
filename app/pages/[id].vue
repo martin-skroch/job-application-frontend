@@ -77,7 +77,7 @@ onMounted(async () => {
 
                 <div>
                     <AppHeading tag="div" class="font-light md:text-lg">Moin, mein Name ist</AppHeading>
-                    <AppHeading tag="h1" class="font-bold text-4xl md:text-5xl">{{ profile.name }}</AppHeading>
+                    <AppHeading tag="h1" class="font-bold text-4xl md:text-5xl text-primary">{{ profile.name }}</AppHeading>
                     <AppHeading tag="h1" class="font-light text-xl md:text-2xl">Full Stack Web Developer</AppHeading>
                 </div>
 
