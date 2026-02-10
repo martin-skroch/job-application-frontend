@@ -40,9 +40,9 @@ if (!exit.value.isValid()) {
 <template>
     <div class="perspective-distant perspective-origin-center">
 
-        <div ref="experience" class="grid grid-cols-4 gap-[clamp(1.5rem,3dvw,2rem)] transform-3d">
+        <div ref="experience" class="grid lg:grid-cols-4 gap-[clamp(1.5rem,3dvw,2rem)] transform-3d">
 
-            <div class="col-span-1 flex flex-col justify-between items-end gap-4">
+            <div class="lg:col-span-1 flex lg:flex-col justify-between items-end gap-6 lg:gap-4">
                 <div class="font-sans text-[clamp(1.5rem,4dvw,3rem)] flex items-center gap-1" v-if="props.experience.exit">
                     <span class="font-light">{{ exit.format('MM') }}</span>
                     <span class="font-extralight">/</span>
@@ -53,10 +53,13 @@ if (!exit.value.isValid()) {
                     heute
                 </div>
 
-                <div class="grow relative border-r border-dashed border-secondary flex flex-col justify-center me-[clamp(1.5rem,3dvw,2rem)] py-4">
-                    <Icon name="ph:caret-up-fill" class="absolute -top-3 -right-[0.5px] translate-x-1/2" />
+                <div class="grow relative max-lg:border-b lg:border-r border-dashed border-secondary flex flex-col justify-center max-lg:mb-[clamp(1rem,2dvw,1.5rem)] lg:me-[clamp(1.5rem,3dvw,2rem)] max-lg:px-4 lg:py-4">
+                    <Icon
+                        name="ph:caret-right-fill"
+                        class="absolute max-lg:-top-[0.5px] max-lg:-right-3 lg:-top-3 lg:-right-[0.5px] translate-y-1/2 lg:translate-x-1/2 lg:-rotate-90"
+                    />
 
-                    <div class="text-xs [writing-mode:vertical-rl] rotate-180 text-right">
+                    <div class="text-xs lg:[writing-mode:vertical-rl] lg:rotate-180 text-center lg:text-right whitespace-nowrap">
                         {{ props.experience.duration }}
                     </div>
                 </div>
@@ -68,7 +71,7 @@ if (!exit.value.isValid()) {
                 </div>
             </div>
 
-            <div class="col-span-3">
+            <div class="lg:col-span-3">
                 <div class="min-h-full border border-secondary shadow-[0_0.5rem_0_0_var(--color-secondary)] mb-2 rounded-2xl">
 
                     <header class="col-span-2 space-y-2 bg-secondary/10 border-b border-secondary px-[clamp(1.5rem,3dvw,2rem)] py-4 rounded-t-2xl">

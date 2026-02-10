@@ -3,9 +3,9 @@ import type { Application, Profile } from '~/types'
 
 definePageMeta({middleware: ['id']});
 
-const { profile, setProfile, email, phone, github } = useProfile();
 const { apiUrl, apiKey } = useRuntimeConfig().public;
 const { id, isId } = useApplication();
+const { profile, setProfile, email, phone, github } = useProfile();
 const router = useRouter();
 
 const application = ref<Application | null>(null);
@@ -54,6 +54,18 @@ onMounted(async () => {
 </script>
 
 <style scoped>
+@reference '../assets/css/main.css';
+
+nav a,
+nav button {
+    @apply transition-colors inline-flex items-center gap-1.5 leading-none cursor-pointer whitespace-nowrap rounded-md py-2 px-3;
+}
+
+nav a:hover,
+nav button:hover {
+    @apply bg-primary text-secondary;
+}
+
 .fade-leave-active {
     transition: opacity 0.3s ease;
 }
@@ -81,18 +93,18 @@ onMounted(async () => {
                     <AppHeading tag="h1" class="font-light text-xl md:text-2xl">Full Stack Web Developer</AppHeading>
                 </div>
 
-                <p class="max-w-lg">Exercitationem, illum laboriosam accusantium obcaecati voluptates blanditiis totam, vero voluptate asperiores, veritatis qui.</p>
+                <p class="max-w-lg" v-if="application?.text">{{ application.text }}</p>
 
-                <nav class="inline-flex items-center gap-8 text-base">
-                    <a class="gap-2 no-hover" :href="github" target="_blank" rel="noopener">
+                <nav class="inline-flex items-center gap-4 text-base">
+                    <a class="no-hover" :href="github" target="_blank" rel="noopener">
                         <Icon name="ph:github-logo-duotone" /> GitHub
                     </a>
 
-                    <button class="as-link flex items-center gap-2 no-hover" @click="email">
+                    <button @click="email">
                         <Icon name="ph:at-duotone" /> E-Mail
                     </button>
 
-                    <button class="as-link flex items-center gap-2 no-hover" @click="phone">
+                    <button @click="phone">
                         <Icon name="ph:phone-duotone" /> Phone
                     </button>
                 </nav>
