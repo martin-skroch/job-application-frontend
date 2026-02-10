@@ -4,7 +4,7 @@ import type { Profile } from "./types"
 const profile: Profile = {
     image: '/images/avatar.webp',
     name: 'Martin Skroch',
-    email: 'martin@skroch.de',
+    email: 'bWFpbHRvOm1hcnRpbkBza3JvY2guZGU=',
     birthdate: '1985-09-18',
 }
 

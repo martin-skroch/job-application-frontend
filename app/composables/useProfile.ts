@@ -14,9 +14,45 @@ export const useProfile = () => {
         return profile.value;
     };
 
+    const email = (event: PointerEvent) => {
+        event.preventDefault();
+        event.stopPropagation();
+
+        if (typeof profile.value.email !== 'string') {
+            return;
+        }
+
+        try {
+            window.location.href = window.atob(profile.value.email);
+        } catch (e) {
+            if (e instanceof Error) {
+                console.error(e.message);
+            }
+        }
+    }
+
+    const phone = (event: PointerEvent) => {
+        event.preventDefault();
+        event.stopPropagation();
+
+        if (typeof profile.value.phone !== 'string') {
+            return;
+        }
+
+        try {
+            window.location.href = window.atob(profile.value.phone);
+        } catch (e) {
+            if (e instanceof Error) {
+                console.error(e.message);
+            }
+        }
+    }
+
     return {
         setProfile,
         getProfile,
         profile,
+        email,
+        phone,
     };
 };

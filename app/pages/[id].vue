@@ -1,11 +1,11 @@
 <script lang="ts" setup>
 import type { Application, Profile } from '~/types'
 
-definePageMeta({middleware: ['ulid']});
+definePageMeta({middleware: ['id']});
 
 const { profile, setProfile } = useProfile();
 const { apiUrl, apiKey } = useRuntimeConfig().public;
-const { ulid, isUlid, deleteUlid } = useUlid();
+const { id, isId, deleteId } = useId();
 const router = useRouter();
 
 const application = ref<Application | null>(null);
@@ -19,7 +19,7 @@ watch(loading, (loading) => {
 });
 
 onMounted(async () => {
-    if (!isUlid()) {
+    if (!isId()) {
         error.value = 'The job application could not be loaded.';
         return;
     }
@@ -37,17 +37,14 @@ onMounted(async () => {
     };
 
     try {
-        application.value = await $fetch(`api/application/${ulid.value}`, options);
+        application.value = await $fetch(`api/application/${id.value}`, options);
 
         if (application.value !== null) {
             setProfile(application.value.profile);
-            console.log('Proile has set');
         }
 
     } catch (e) {
-        error.value = e instanceof Error ? e.message : `The job application could not be loaded: ${ulid.value}`;
-
-        deleteUlid();
+        error.value = e instanceof Error ? e.message : `The job application could not be loaded: ${id.value}`;
 
         await router.replace('/');
     } finally {
@@ -74,7 +71,7 @@ onMounted(async () => {
     </Transition>
 
     <div v-if="!loading">
-        <AppHero id="einleitung">
+        <AppHero id="einleitung" class="min-h-dvh flex flex-col justify-end relative">
             <AppHeading class="font-bold text-[clamp(7rem,20dvw,16rem)] leading-none text-primary/30">Moin</AppHeading>
 
             <div class="font-display text-[clamp(1.5rem,3dvw,1.875rem)] leading-normal -mt-[clamp(4.5rem,11dvw,9rem)]">

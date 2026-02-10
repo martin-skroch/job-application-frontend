@@ -1,6 +1,5 @@
 <script lang="ts" setup>
 import moment from 'moment';
-import type { Profile } from '~/types';
 
 const { profile } = useProfile();
 
@@ -8,10 +7,6 @@ const today = moment();
 const birth = moment('1985-09-18');
 const age = ref<number>();
 age.value = moment.duration(today.diff(birth)).years();
-
-const email = () => {
-    window.open(window.atob('bWFpbHRvOm1hcnRpbkBza3JvY2guZGU='), '_self');
-}
 </script>
 
 <template>

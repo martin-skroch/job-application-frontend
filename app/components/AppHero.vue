@@ -17,7 +17,7 @@ nav button:hover {
 </style>
 
 <template>
-    <AppSection class="min-h-dvh flex flex-col justify-end relative" spacing="">
+    <AppSection spacing="">
 
         <!-- <div class="bg-black/30 rounded-full max-w-4xl p-4 grid grid-cols-4 gap-3">
             <AppAvatar class="col-span-1" />

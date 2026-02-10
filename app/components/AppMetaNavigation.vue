@@ -1,15 +1,17 @@
 <script lang="ts" setup>
-const profile = useAppConfig().profile;
+const { profile, email, phone } = useProfile();
 </script>
 
 <style scoped>
 @reference '../assets/css/main.css';
 
-a {
+a,
+.as-link {
     @apply p-1;
 }
 
-a:not(:hover) {
+a:not(:hover),
+.as-link:not(:hover) {
     @apply border-transparent;
 }
 </style>
@@ -23,14 +25,14 @@ a:not(:hover) {
             <span class="max-md:sr-only">GitHub</span>
         </a>
 
-        <a v-if="profile.phone" :href="'tel:' + profile.phone" title="Ruf gerne durch">
+        <button class="as-link" v-if="profile.phone" @click="phone" title="Ruf gerne durch">
             <Icon name="ph:phone-duotone" />
             <span class="max-md:sr-only">Telefon</span>
-        </a>
+        </button>
 
-        <a v-if="profile.email" :href="'mailto:' + profile.email" title="Schreib mir gerne">
+        <button class="as-link" v-if="profile.email" @click="email" title="Schreib mir gerne">
             <Icon name="ph:at-duotone" />
             <span class="max-md:sr-only">E-Mail</span>
-        </a>
+        </button>
     </nav>
 </template>
