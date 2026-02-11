@@ -53,7 +53,7 @@ if (!exit.value.isValid()) {
                     heute
                 </div>
 
-                <div class="grow flex max-lg:border-b lg:border-r border-dashed border-secondary relative after:absolute after:w-1.5 after:h-2 after:right-0 max-lg:after:bottom-0 lg:after:-top-1 max-lg:after:translate-y-1/2 after:translate-x-1/2 lg:after:-rotate-90 after:bg-secondary after:[clip-path:polygon(0_0,0%_100%,100%_50%)]">
+                <div class="grow flex max-lg:border-b lg:border-r border-dashed border-secondary relative after:absolute after:w-1.5 after:h-2 after:right-0 max-lg:after:bottom-0 lg:after:-top-1 max-lg:after:translate-y-1/2 after:translate-x-1/2 lg:after:-rotate-90 after:bg-secondary after:[clip-path:polygon(0_0,0%_100%,100%_50%)] mb-3">
                     <div class="grow text-xs text-center whitespace-nowrap lg:[writing-mode:vertical-rl] lg:rotate-180">{{ props.experience.duration }}</div>
                 </div>
 
