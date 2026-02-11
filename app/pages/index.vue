@@ -46,12 +46,12 @@ const request = async (values: object) => {
 </script>
 
 <template>
-    <AppHero id="einleitung" scroll-taget="onlinebewerbung">
+    <AppHero id="einleitung">
         <!-- <p>Als Full Stack Developer verbinde ich Backend, Datenbank und Frontend zu durchdachten Gesamtlösungen. Ich arbeite präzise, pragmatisch und mit dem Ziel, langfristig funktionierenden Code zu liefern. Qualität steht für mich über schnellen Kompromissen.</p> -->
         <p>Ich entwickle Webanwendungen mit technischem Tiefgang und einem klaren Blick für das Wesentliche. Erfahrung bedeutet für mich, Projekte strukturiert umzusetzen und Verantwortung zu übernehmen. Wer einen Entwickler sucht, der mitdenkt, ist hier richtig.</p>
     </AppHero>
 
-    <AppSection id="onlinebewerbung" class="bg-primary text-secondary">
+    <AppSection v-if="false" id="onlinebewerbung" class="bg-primary text-secondary">
         <div class="group flex max-md:flex-col md:items-start md:even:flex-row-reverse gap-8 md:gap-16">
             <div class="md:w-1/2">
                 <div class="size-3/5 md:size-full group-even:ms-auto group-odd:-rotate-2 group-even:rotate-2 aspect-square bg-white rounded-2xl border border-secondary shadow-[0_0.5rem_0_0_var(--color-secondary)] flex items-center justify-center overflow-hidden">

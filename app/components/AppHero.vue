@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 const { profile } = useProfile();
 
-const props = defineProps<{scrollTaget?: string}>();
+const props = defineProps<{scrollTarget?: string}>();
 </script>
 
 <template>
@@ -21,7 +21,9 @@ const props = defineProps<{scrollTaget?: string}>();
             <AppMetaNavigation />
         </div>
 
-        <a v-if="props.scrollTaget" :href="'#' + props.scrollTaget" role="button" class="absolute bottom-0 left-1/2 -translate-x-1/2 p-4 no-hover">
+        <pre>{{ props.scrollTarget }}</pre>
+
+        <a v-if="props.scrollTarget" :href="'#' + props.scrollTarget" role="button" class="absolute bottom-0 left-1/2 -translate-x-1/2 p-4 no-hover">
             <svg class="stroke-current opacity-30 w-12 p-2 -m-2 h-auto stroke-[0.04em] animate-bounce" viewBox="0 0 29.712 8.8547" xmlns="http://www.w3.org/2000/svg">
                 <path d="m29.476 0.44055-14.62 7.8467-14.62-7.8467" fill="none" stroke="currentColor" />
             </svg>
