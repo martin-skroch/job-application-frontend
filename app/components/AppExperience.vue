@@ -42,7 +42,7 @@ if (!exit.value.isValid()) {
 
         <div ref="experience" class="grid lg:grid-cols-4 gap-[clamp(1rem,4dvw,3rem)] transform-3d">
 
-            <div class="lg:col-span-1 flex flex-row-reverse lg:flex-col justify-between items-center lg:items-end gap-2 md:gap-4 lg:gap-6">
+            <div class="lg:col-span-1 flex flex-row-reverse lg:flex-col justify-between items-center lg:items-end gap-6 lg:gap-2">
                 <div class="font-sans text-[clamp(1rem,4dvw,3rem)] flex items-center gap-1" v-if="props.experience.exit">
                     <span class="font-light">{{ exit.format('MM') }}</span>
                     <span class="font-extralight">/</span>
@@ -53,8 +53,8 @@ if (!exit.value.isValid()) {
                     heute
                 </div>
 
-                <div class="grow flex max-lg:border-b lg:border-r border-dashed border-secondary relative after:absolute after:w-1.5 after:h-2 after:right-0 max-lg:after:bottom-0 lg:after:-top-1 max-lg:after:translate-y-1/2 after:translate-x-1/2 lg:after:-rotate-90 after:bg-secondary after:[clip-path:polygon(0_0,0%_100%,100%_50%)] mb-3">
-                    <div class="grow text-xs text-center whitespace-nowrap lg:[writing-mode:vertical-rl] lg:rotate-180">{{ props.experience.duration }}</div>
+                <div class="grow flex max-lg:border-b lg:border-r border-dashed border-current relative after:absolute after:w-1.5 after:h-2 after:right-0 max-lg:after:bottom-0 lg:after:-top-1 max-lg:after:translate-y-1/2 after:translate-x-1/2 lg:after:-rotate-90 after:bg-current after:[clip-path:polygon(0_0,0%_100%,100%_50%)] max-lg:mb-3">
+                    <div class="grow text-xs text-center whitespace-nowrap lg:[writing-mode:vertical-rl] lg:rotate-180 lg:px-4">{{ props.experience.duration }}</div>
                 </div>
 
                 <div class="font-sans text-[clamp(1rem,4dvw,3rem)] flex items-center gap-1">
@@ -65,9 +65,9 @@ if (!exit.value.isValid()) {
             </div>
 
             <div class="lg:col-span-3">
-                <div class="min-h-full border border-secondary shadow-[0_0.5rem_0_0_var(--color-secondary)] mb-2 rounded-2xl">
+                <div class="min-h-full border border-current shadow-[0_0.5rem_0_0_currentColor] mb-2 rounded-2xl">
 
-                    <header class="col-span-2 space-y-2 bg-secondary/10 border-b border-secondary px-[clamp(1.5rem,3dvw,2rem)] py-4 rounded-t-2xl">
+                    <header class="col-span-2 space-y-2 bg-current/10 border-b border-current px-[clamp(1.5rem,3dvw,2rem)] py-4 rounded-t-2xl">
                         <AppHeading tag="h3" v-if="props.experience.institution" class="text-[clamp(1.3rem,3dvw,2.25rem)] font-medium" :title="props.experience.institution">
                             {{ props.experience.institution }}
                         </AppHeading>
@@ -94,7 +94,7 @@ if (!exit.value.isValid()) {
                                     <Icon name="ph:brackets-curly-duotone" /> Technologien
                                 </h4>
                                 <div class="flex flex-wrap gap-2">
-                                    <button v-for="(skill, index) in skills" v-bind:key="index" type="button" class="inline-flex items-center gap-1.5 text-xs bg-secondary/10 border-secondary text-secondary rounded-sm leading-none py-1 px-1.5">
+                                    <button v-for="(skill, index) in skills" v-bind:key="index" type="button" class="inline-flex items-center gap-1.5 text-xs bg-current/10 border-current text-current rounded-sm leading-none py-1 px-1.5">
                                         {{ skill.name }} <span v-if="skill.info" class="text-[0.6rem] opacity-75">({{ skill.info }})</span>
                                     </button>
                                 </div>

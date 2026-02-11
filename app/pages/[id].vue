@@ -1,14 +1,15 @@
 <script lang="ts" setup>
-import type { Application, Profile } from '~/types'
+import type { Application, Skill } from '~/types'
 
-definePageMeta({middleware: ['id']});
+definePageMeta({ middleware: ['id'] });
 
 const { apiUrl, apiKey } = useRuntimeConfig().public;
 const { id, isId } = useApplication();
-const { profile, setProfile, email, phone, github } = useProfile();
+const { setProfile } = useProfile();
 const router = useRouter();
 
 const application = ref<Application | null>(null);
+const skills = ref<Skill[]>([]);
 const loading = ref<boolean>(false);
 const error = ref<string | null>(null);
 
@@ -41,6 +42,7 @@ onMounted(async () => {
 
         if (application.value !== null) {
             setProfile(application.value.profile);
+            skills.value = application.value.skills;
         }
 
     } catch (e) {
@@ -58,7 +60,8 @@ onMounted(async () => {
     transition: opacity 0.3s ease;
 }
 
-.fade-enter-from, .fade-leave-to {
+.fade-enter-from,
+.fade-leave-to {
     opacity: 0;
 }
 </style>
@@ -75,20 +78,24 @@ onMounted(async () => {
             {{ application?.text }}
         </AppHero>
 
-        <AppSection id="werdegang" heading="Werdegang" class="bg-primary text-secondary relative overflow-x-hidden dark-mouse-tracker">
+        <AppSection id="werdegang" heading="Werdegang"
+            class="bg-primary text-secondary relative overflow-x-hidden dark-mouse-tracker">
             <div class="space-y-20 xl:space-y-32">
-                <AppExperience v-for="(experience, index) in application?.experiences" :key="experience.id" :experience="experience" :index="index" />
+                <AppExperience v-for="(experience, index) in application?.experiences" :key="experience.id"
+                    :experience="experience" :index="index" />
             </div>
         </AppSection>
 
-        <AppSection id="fortbildung" heading="Fortbildung" class="bg-primary text-secondary relative overflow-x-hidden dark-mouse-tracker">
+        <AppSection id="fortbildung" heading="Fortbildung" class="relative overflow-x-hidden dark-mouse-tracker">
             <div class="space-y-20 xl:space-y-32">
                 <AppExperience v-for="(education, index) in application?.educations" :key="education.id" :experience="education" :index="index" />
             </div>
         </AppSection>
 
-        <AppSection v-if="false" heading="Fähigkeiten" id="faehigkeiten">
-
+        <AppSection id="faehigkeiten" heading="Fähigkeiten" class="bg-primary text-secondary ">
+            <div class="grid md:grid-cols-2 gap-y-4 gap-x-16">
+                <AppSkill v-for="skill in skills" v-bind:key="skill.id" :skill="skill" />
+            </div>
         </AppSection>
 
         <AppSection id="persoenliches" heading="Was ich privat so treibe">
