@@ -81,8 +81,7 @@ onMounted(async () => {
         <AppSection id="werdegang" heading="Werdegang"
             class="bg-primary text-secondary relative overflow-x-hidden dark-mouse-tracker">
             <div class="space-y-20 xl:space-y-32">
-                <AppExperience v-for="(experience, index) in application?.experiences" :key="experience.id"
-                    :experience="experience" :index="index" />
+                <AppExperience v-for="(experience, index) in application?.experiences" :key="experience.id" :experience="experience" :index="index" />
             </div>
         </AppSection>
 
