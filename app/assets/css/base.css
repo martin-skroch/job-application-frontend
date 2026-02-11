@@ -1,0 +1,48 @@
+@layer base {
+    html {
+        @apply scroll-smooth text-[18px] lg:text-[20px] xl:text-[24px];
+    }
+
+    body {
+        @apply relative z-0 min-h-dvh antialiased bg-background text-foreground font-light before:absolute before:-z-10 before:inset-0;
+    }
+
+    body::before {
+        --pattern-color: var(--color-zinc-700);
+
+        opacity: 0.1;
+        background-image:
+            linear-gradient(var(--pattern-color) 2px, transparent 2px),
+            linear-gradient(90deg, var(--pattern-color) 2px, transparent 2px),
+            linear-gradient(var(--pattern-color) 1px, transparent 1px),
+            linear-gradient(90deg, var(--pattern-color) 1px, transparent 1px)
+        ;
+        background-size:
+            50px 50px,
+            50px 50px,
+            10px 10px,
+            10px 10px
+        ;
+        background-position:
+            -2px -2px,
+            -2px -2px,
+            -1px -1px,
+            -1px -1px
+        ;
+    }
+
+    a:any-link,
+    .as-link {
+        @apply inline-flex items-center gap-1 leading-none cursor-pointer whitespace-nowrap;
+    }
+
+    a:not(.no-hover),
+    .as-link:not(.no-hover) {
+        @apply border-b border-dotted border-current;
+    }
+
+    a:not(.no-hover):hover,
+    .as-link:not(.no-hover):hover {
+        @apply text-primary border-primary;
+    }
+}

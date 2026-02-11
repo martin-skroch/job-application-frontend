@@ -1,0 +1,9 @@
+@theme {
+    --color-background: var(--color-zinc-900);
+    --color-foreground: var(--color-zinc-200);
+
+    --color-primary: #B9903E;
+    --color-secondary: var(--color-background);
+
+    --font-display: "Josefin Slab", sans-serif;
+}

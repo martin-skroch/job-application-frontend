@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+if [ ! -f .env ]; then
+    echo "The .env file required for deployment does not exist."
+    exit
+fi
+
+source .env
+
+if [ "$NODE_ENV" == "development" ]; then
+    echo "The deployment will only be executed if the value of NODE_ENV is not 'development'."
+    exit
+fi
+
+git reset --hard
+git clean -d -f
+git pull origin new --rebase
+
+npm ci --audit false
+npm run generate
+
+echo "🚀 Application deployed!"
