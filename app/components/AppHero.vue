@@ -1,7 +1,12 @@
 <script lang="ts" setup>
+import type { Application } from '~/types';
+
 const { profile } = useProfile();
 
-const props = defineProps<{scrollTarget?: string}>();
+const props = defineProps<{
+    scrollTarget?: string,
+    application?: Application | null
+}>();
 </script>
 
 <template>
@@ -11,7 +16,7 @@ const props = defineProps<{scrollTarget?: string}>();
 
             <div>
                 <AppHeading tag="h1" class="font-bold text-2xl md:text-4xl text-primary">{{ profile.name }}</AppHeading>
-                <AppHeading tag="h2" class="font-light text-lg md:text-xl">Full Stack Web Developer</AppHeading>
+                <AppHeading tag="h2" class="font-light text-lg md:text-2xl">Bewerbung als {{ props.application?.title }}</AppHeading>
             </div>
 
             <div class="max-w-xl font-display text-lg space-y-6 bg-white/5 shadow-2xl rounded-md p-5">

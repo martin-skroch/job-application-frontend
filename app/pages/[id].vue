@@ -74,7 +74,7 @@ onMounted(async () => {
     </Transition>
 
     <div v-if="!loading">
-        <AppHero id="einleitung" scroll-target="werdegang">
+        <AppHero id="einleitung" scroll-target="werdegang" :application="application ?? null">
             {{ application?.text }}
         </AppHero>
 
