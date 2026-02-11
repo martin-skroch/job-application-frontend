@@ -102,8 +102,8 @@ if (!exit.value.isValid()) {
                                     <Icon name="ph:brackets-curly-duotone" /> Technologien
                                 </h4>
                                 <div class="flex flex-wrap gap-2">
-                                    <button v-for="(skill, index) in skills" v-bind:key="index" type="button" class="text-xs bg-secondary/10 border-secondary text-secondary rounded-sm leading-none py-1 px-1.5">
-                                        {{ skill.name }}
+                                    <button v-for="(skill, index) in skills" v-bind:key="index" type="button" class="inline-flex items-center gap-1.5 text-xs bg-secondary/10 border-secondary text-secondary rounded-sm leading-none py-1 px-1.5">
+                                        {{ skill.name }} <span v-if="skill.info" class="text-[0.6rem] opacity-75">({{ skill.info }})</span>
                                     </button>
                                 </div>
                             </div>

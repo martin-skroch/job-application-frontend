@@ -40,7 +40,7 @@ export interface Experience {
 export interface Skill {
     id: string,
     name: string,
-    info: string | null,
+    info?: string,
     rating: number,
 }
 
