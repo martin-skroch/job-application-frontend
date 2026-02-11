@@ -2,6 +2,7 @@ export interface Application {
     id: string,
     title: string,
     text: string,
+    company?: string,
     profile: Profile,
     experiences: Experience[],
     educations: Experience[],
