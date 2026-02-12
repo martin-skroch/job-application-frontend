@@ -2,6 +2,7 @@
 import type { Application, Experience, Impression, Skill } from '~/types'
 
 definePageMeta({ middleware: ['id'] });
+useSeoMeta({robots: 'noindex, nofollow'});
 
 const { apiUrl, apiKey } = useRuntimeConfig().public;
 const { id, isId } = useApplication();
