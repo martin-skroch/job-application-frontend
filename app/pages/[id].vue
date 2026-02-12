@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import type { Application, Skill } from '~/types'
+import type { Application, Experience, Impression, Skill } from '~/types'
 
 definePageMeta({ middleware: ['id'] });
 
@@ -9,7 +9,12 @@ const { setProfile } = useProfile();
 const router = useRouter();
 
 const application = ref<Application | null>(null);
+const experiences = ref<Experience[]>([]);
+const educations = ref<Experience[]>([]);
+const training = ref<Experience[]>([]);
+const school = ref<Experience[]>([]);
 const skills = ref<Skill[]>([]);
+const impressions = ref<Impression[]>([]);
 const loading = ref<boolean>(false);
 const error = ref<string | null>(null);
 
@@ -42,7 +47,12 @@ onMounted(async () => {
 
         if (application.value !== null) {
             setProfile(application.value.profile);
+            experiences.value = application.value.experiences;
+            educations.value = application.value.educations;
+            training.value = application.value.training;
+            school.value = application.value.school;
             skills.value = application.value.skills;
+            impressions.value = application.value.impressions;
         }
 
     } catch (e) {
@@ -78,28 +88,39 @@ onMounted(async () => {
             {{ application?.text }}
         </AppHero>
 
-        <AppSection id="werdegang" heading="Werdegang"
-            class="bg-primary text-secondary relative overflow-x-hidden dark-mouse-tracker">
+        <AppSection v-if="experiences.length > 0" id="werdegang" heading="Werdegang" class="bg-primary text-secondary relative overflow-x-hidden dark-mouse-tracker">
             <div class="space-y-20 xl:space-y-32">
-                <AppExperience v-for="(experience, index) in application?.experiences" :key="experience.id" :experience="experience" :index="index" />
+                <AppExperience v-for="(item, index) in experiences" :key="item.id" :experience="item" :index="index" />
             </div>
         </AppSection>
 
-        <AppSection id="fortbildung" heading="Fortbildung" class="relative overflow-x-hidden dark-mouse-tracker">
+        <AppSection v-if="educations.length > 0" id="fortbildung" heading="Fortbildung" class="relative overflow-x-hidden dark-mouse-tracker">
             <div class="space-y-20 xl:space-y-32">
-                <AppExperience v-for="(education, index) in application?.educations" :key="education.id" :experience="education" :index="index" />
+                <AppExperience v-for="(item, index) in educations" :key="item.id" :experience="item" :index="index" />
             </div>
         </AppSection>
 
-        <AppSection id="faehigkeiten" heading="Fähigkeiten" class="bg-primary text-secondary ">
+        <AppSection v-if="training.length > 0" id="ausbildung" heading="Ausbildung" class="relative overflow-x-hidden dark-mouse-tracker">
+            <div class="space-y-20 xl:space-y-32">
+                <AppExperience v-for="(item, index) in training" :key="item.id" :experience="item" :index="index" />
+            </div>
+        </AppSection>
+
+        <AppSection v-if="school.length > 0" id="schule" heading="Schule" class="relative overflow-x-hidden dark-mouse-tracker">
+            <div class="space-y-20 xl:space-y-32">
+                <AppExperience v-for="(item, index) in school" :key="item.id" :experience="item" :index="index" />
+            </div>
+        </AppSection>
+
+        <AppSection v-if="training.length > 0" id="faehigkeiten" heading="Fähigkeiten" class="bg-primary text-secondary ">
             <div class="grid md:grid-cols-2 gap-y-4 gap-x-16">
                 <AppSkill v-for="skill in skills" v-bind:key="skill.id" :skill="skill" />
             </div>
         </AppSection>
 
-        <AppSection id="persoenliches" heading="Was ich privat so treibe">
+        <AppSection v-if="impressions.length > 0" id="persoenliches" heading="Was ich privat so treibe">
             <div class="space-y-20 xl:space-y-32">
-                <AppImpression v-for="impression in application?.impressions" :impression="impression" v-bind:key="impression.id" />
+                <AppImpression v-for="item in impressions" :impression="item" v-bind:key="item.id" />
             </div>
         </AppSection>
     </div>

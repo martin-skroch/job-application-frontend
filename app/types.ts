@@ -6,6 +6,8 @@ export interface Application {
     profile: Profile,
     experiences: Experience[],
     educations: Experience[],
+    training: Experience[],
+    school: Experience[],
     skills: Skill[],
     impressions: Impression[],
 }
