@@ -66,7 +66,7 @@ if (!exit.value.isValid()) {
             </div>
 
             <div class="lg:col-span-3">
-                <div class="min-h-full border border-current shadow-[0_0.5rem_0_0_currentColor] mb-2 rounded-2xl">
+                <div class="min-h-full border border-b-0 border-current shadow-[0_0.5rem_0_0_currentColor] mb-2 rounded-2xl">
 
                     <header class="col-span-2 space-y-2 bg-current/10 border-b border-current px-[clamp(1.5rem,3dvw,2rem)] py-4 rounded-t-2xl">
                         <AppHeading tag="h3" v-if="props.experience.institution" class="text-[clamp(1.3rem,3dvw,2.25rem)] font-medium" :title="props.experience.institution">
