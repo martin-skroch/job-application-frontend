@@ -36,6 +36,7 @@ export interface Experience {
     duration: string,
     description: string | null,
     skills: readonly Skill[],
+    files: readonly File[],
 }
 
 export interface Skill {
@@ -50,4 +51,12 @@ export interface Impression {
     image: string,
     title?: string,
     description?: string,
+}
+
+export interface File {
+    id: string,
+    title: string,
+    url: string,
+    mime: string,
+    size: string,
 }

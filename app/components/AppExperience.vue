@@ -1,11 +1,12 @@
 <script lang="ts" setup>
-import type { Skill, Experience } from '~/types';
+import type { Experience, Skill, File } from '~/types';
 import moment from 'moment';
 
 const props = defineProps<{index: number, experience: Experience}>();
 const entry = ref<moment.Moment>(moment(props.experience.entry));
 const exit = ref<moment.Moment>(moment(props.experience.exit).add(1, 'day'));
 const skills = ref<Skill[]>([...props.experience.skills]);
+const files = ref<File[]>([...props.experience.files]);
 
 if (!exit.value.isValid()) {
     exit.value = moment();
@@ -88,17 +89,32 @@ if (!exit.value.isValid()) {
                             <p>{{ props.experience.description }}</p>
                         </div>
 
-                        <div class="col-span-1 space-y-[clamp(1.5rem,3dvw,2rem)]">
-                            <div v-if="skills.length > 0" class="space-y-3">
-                                <h4 class="flex items-center gap-2">
+                        <div class="col-span-1 space-y-[clamp(1rem,3dvw,1.5rem)]">
+
+                            <div v-if="skills.length > 0" class="space-y-2">
+                                <h4 class="flex items-center gap-1 text-xs font-medium">
                                     <Icon name="ph:brackets-curly-duotone" /> Technologien
                                 </h4>
-                                <div class="flex flex-wrap gap-2">
-                                    <button v-for="(skill, index) in skills" v-bind:key="index" type="button" class="inline-flex items-center gap-1.5 text-xs bg-current/10 border-current text-current rounded-sm leading-none py-1 px-1.5">
+                                <div class="flex flex-wrap gap-1">
+                                    <button v-for="(skill, index) in skills" v-bind:key="index" type="button" class="inline-flex items-center gap-1.5 text-xs bg-current/10 border-current text-current rounded-sm leading-none whitespace-nowrap py-1 px-1.5">
                                         {{ skill.name }} <span v-if="skill.info" class="text-[0.6rem] opacity-75">({{ skill.info }})</span>
                                     </button>
                                 </div>
                             </div>
+
+                            <div v-if="files.length > 0" class="space-y-2">
+                                <h4 class="flex items-center gap-1 text-xs font-medium">
+                                    <Icon name="ph:paperclip-duotone" /> Anhänge
+                                </h4>
+                                <div class="flex flex-col items-start gap-1">
+                                    <a :href="file.url" v-for="(file, index) in files" v-bind:key="index" type="button" class="inline-flex items-center gap-1.5 text-xs bg-current/10 hover:bg-current/20 border-current text-current rounded-sm leading-none whitespace-nowrap py-1 px-1.5 no-hover">
+                                        <Icon :name="'ph:file-' + file.mime.split('/').at(-1) + '-duotone'" />
+                                        <span>{{ file.title }}</span>
+                                        <span v-if="file.size" class="text-[0.6rem] opacity-75">({{ file.size }})</span>
+                                    </a>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                 </div>
