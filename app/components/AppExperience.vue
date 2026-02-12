@@ -107,7 +107,7 @@ if (!exit.value.isValid()) {
                                     <Icon name="ph:paperclip-duotone" /> Anhänge
                                 </h4>
                                 <div class="flex flex-col items-start gap-1">
-                                    <a :href="file.url" v-for="(file, index) in files" v-bind:key="index" type="button" class="inline-flex items-center gap-1.5 text-xs bg-current/10 hover:bg-current/20 border-current text-current rounded-sm leading-none whitespace-nowrap py-1 px-1.5 no-hover">
+                                    <a :href="file.url" v-for="(file, index) in files" v-bind:key="index" target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 text-xs bg-current/10 hover:bg-current/20 border-current text-current rounded-sm leading-none whitespace-nowrap py-1 px-1.5 no-hover">
                                         <Icon :name="'ph:file-' + file.mime.split('/').at(-1) + '-duotone'" />
                                         <span>{{ file.title }}</span>
                                         <span v-if="file.size" class="text-[0.6rem] opacity-75">({{ file.size }})</span>
