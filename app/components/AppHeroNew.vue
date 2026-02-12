@@ -3,12 +3,19 @@ import type { Application } from '~/types';
 
 const { profile } = useProfile();
 
+const slots = useSlots();
+const title = ref<string>();
 const props = defineProps<{
     scrollTarget?: string,
     application?: Application | null
 }>();
 
-const slots = useSlots();
+if (props.application?.title) {
+    title.value = 'Bewerbung als ' + props.application.title;
+} else {
+    title.value = 'Full Stack Web Developer';
+}
+
 </script>
 
 <template>
@@ -24,7 +31,7 @@ const slots = useSlots();
                 </div>
             </div>
 
-            <AppHeading tag="h2" class="font-light text-lg md:text-2xl lg:text-3xl" v-if="props.application?.title">Bewerbung als {{ props.application?.title }}</AppHeading>
+            <AppHeading tag="h2" class="font-light text-lg md:text-2xl lg:text-3xl" v-if="title">{{ title }}</AppHeading>
 
             <!-- <div v-if="slots.default" class="max-w-xl font-display text-base space-y-6 bg-white/5 shadow-2xl rounded-md p-4">
                 <slot />
