@@ -14,7 +14,7 @@ fi
 
 git reset --hard
 git clean -d -f
-git pull origin main --rebase
+git pull origin master --rebase
 
 npm ci --audit false
 npm run generate
