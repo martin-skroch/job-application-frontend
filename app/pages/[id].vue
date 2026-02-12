@@ -90,8 +90,8 @@ onMounted(async () => {
         </AppHeroNew>
 
         <AppSection v-if="application?.text || application?.contact" id="anschreiben" class="relative overflow-x-hidden dark-mouse-tracker" spacing="">
-            <AppHeading v-if="application.contact" tag="h2" class="text-[clamp(2rem,7dvw,4rem)] text-center text-primary">
-                Hallo {{ application?.contact }},
+            <AppHeading  tag="h2" class="text-[clamp(2rem,7dvw,4rem)] text-center text-primary">
+                Hallo<template v-if="application.contact"> {{ application?.contact }}</template>,
             </AppHeading>
 
             <div class="max-w-3xl mx-auto font-display text-2xl/normal text-center space-y-6 bg-white/5 shadow-2xl rounded-md p-8 mt-6">
