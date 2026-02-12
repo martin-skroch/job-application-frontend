@@ -112,7 +112,7 @@ onMounted(async () => {
             </div>
         </AppSection>
 
-        <AppSection v-if="training.length > 0" id="faehigkeiten" heading="Fähigkeiten" class="bg-primary text-secondary ">
+        <AppSection v-if="skills.length > 0" id="faehigkeiten" heading="Fähigkeiten" class="bg-primary text-secondary ">
             <div class="grid md:grid-cols-2 gap-y-4 gap-x-16">
                 <AppSkill v-for="skill in skills" v-bind:key="skill.id" :skill="skill" />
             </div>
