@@ -94,7 +94,7 @@ onMounted(async () => {
             </AppHeading>
 
             <div class="max-w-3xl mx-auto font-display text-2xl/normal text-center space-y-6 bg-white/5 shadow-2xl rounded-md p-8 mt-6">
-                <p>{{ application.text }}</p>
+                <p v-html="application.text.replace(/(?:\r\n|\r|\n)/g, '<br>')"></p>
             </div>
         </AppSection>
 
