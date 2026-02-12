@@ -84,9 +84,17 @@ onMounted(async () => {
     </Transition>
 
     <div v-if="!loading">
-        <AppHero id="einleitung" scroll-target="werdegang" :application="application ?? null">
+        <AppHeroNew id="einleitung" scroll-target="werdegang" :application="application">
             {{ application?.text }}
-        </AppHero>
+        </AppHeroNew>
+
+        <AppSection v-if="experiences.length > 0" id="anschreiben" class="relative overflow-x-hidden dark-mouse-tracker" spacing="">
+            <AppHeading tag="h2" class="text-[clamp(2rem,7dvw,4rem)] text-center text-primary">Hallo {{ application?.contact }},</AppHeading>
+
+            <div class="max-w-3xl mx-auto font-display text-xl text-center space-y-6 bg-white/5 shadow-2xl rounded-md p-8 mt-6">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id eveniet sunt reprehenderit esse atque quisquam perspiciatis cupiditate, corporis accusantium laboriosam amet quia. Laboriosam repellat rem quos vel cum ut deleniti!</p>
+            </div>
+        </AppSection>
 
         <AppSection v-if="experiences.length > 0" id="werdegang" heading="Werdegang" class="bg-primary text-secondary relative overflow-x-hidden dark-mouse-tracker">
             <div class="space-y-20 xl:space-y-32">

@@ -3,6 +3,7 @@ export interface Application {
     title: string,
     text: string,
     company?: string,
+    contact?: string,
     profile: Profile,
     experiences: Experience[],
     educations: Experience[],
