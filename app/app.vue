@@ -1,15 +1,18 @@
 <script setup lang="ts">
-const title: string = 'Martin Skroch - Full Stack Web Developer';
-const description: string | null = 'Lorem ipsum dolor sit amet';
-const image: string | null = null;
+// const description: string | null = 'Lorem ipsum dolor sit amet';
+// const image: string | null = null;
+
+const { profile } = useProfile();
+
+const title: string = profile.value.name + ' - Full Stack Web Developer';
 
 useSeoMeta({
     title: title,
     ogTitle: title,
-    description: description,
-    ogDescription: description,
-    ogImage: image,
-    twitterCard: image,
+    // description: description,
+    // ogDescription: description,
+    // ogImage: image,
+    // twitterCard: image,
 });
 </script>
 
