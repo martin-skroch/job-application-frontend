@@ -88,11 +88,13 @@ onMounted(async () => {
             {{ application?.text }}
         </AppHeroNew>
 
-        <AppSection v-if="experiences.length > 0" id="anschreiben" class="relative overflow-x-hidden dark-mouse-tracker" spacing="">
-            <AppHeading tag="h2" class="text-[clamp(2rem,7dvw,4rem)] text-center text-primary">Hallo {{ application?.contact }},</AppHeading>
+        <AppSection v-if="application?.text || application?.contact" id="anschreiben" class="relative overflow-x-hidden dark-mouse-tracker" spacing="">
+            <AppHeading v-if="application.contact" tag="h2" class="text-[clamp(2rem,7dvw,4rem)] text-center text-primary">
+                Hallo {{ application?.contact }},
+            </AppHeading>
 
             <div class="max-w-3xl mx-auto font-display text-2xl/normal text-center space-y-6 bg-white/5 shadow-2xl rounded-md p-8 mt-6">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id eveniet sunt reprehenderit esse atque quisquam perspiciatis cupiditate, corporis accusantium laboriosam amet quia. Laboriosam repellat rem quos vel cum ut deleniti!</p>
+                <p>{{ application.text }}</p>
             </div>
         </AppSection>
 
