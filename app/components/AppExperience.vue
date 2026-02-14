@@ -54,8 +54,8 @@ if (!exit.value.isValid()) {
                     heute
                 </div>
 
-                <div class="grow flex max-lg:border-b lg:border-r border-dashed border-current relative after:absolute after:w-1.5 after:h-2 after:right-0 max-lg:after:bottom-0 lg:after:-top-1 max-lg:after:translate-y-1/2 after:translate-x-1/2 lg:after:-rotate-90 after:bg-current after:[clip-path:polygon(0_0,0%_100%,100%_50%)] max-lg:mb-3">
-                    <div class="grow text-xs text-center whitespace-nowrap lg:[writing-mode:vertical-rl] lg:rotate-180 lg:px-4">{{ props.experience.duration }}</div>
+                <div class="grow flex max-lg:border-b lg:border-r border-dashed border-current relative after:absolute after:w-1.5 after:h-2 after:right-0 max-lg:after:bottom-0 lg:after:-top-1 max-lg:after:translate-y-1/2 after:translate-x-1/2 lg:after:-rotate-90 after:bg-current after:[clip-path:polygon(0_0,0%_100%,100%_50%)] lg:me-6">
+                    <!-- <div class="grow text-xs text-center whitespace-nowrap lg:[writing-mode:vertical-rl] lg:rotate-180 lg:px-4">{{ props.experience.duration }}</div> -->
                 </div>
 
                 <div class="font-sans text-[clamp(1rem,4dvw,3rem)] flex items-center gap-1">
@@ -69,16 +69,19 @@ if (!exit.value.isValid()) {
                 <div class="min-h-full border border-b-0 border-current shadow-[0_0.5rem_0_0_currentColor] mb-2 rounded-2xl">
 
                     <header class="col-span-2 space-y-2 bg-current/10 border-b border-current px-[clamp(1.5rem,3dvw,2rem)] py-4 rounded-t-2xl">
-                        <AppHeading tag="h3" v-if="props.experience.institution" class="text-[clamp(1.3rem,3dvw,2.25rem)] font-medium" :title="props.experience.institution">
+                        <AppHeading tag="h3" v-if="props.experience.institution" class="text-[clamp(1.5rem,3dvw,2.5rem)] font-medium leading-normal!" :title="props.experience.institution">
                             {{ props.experience.institution }}
                         </AppHeading>
 
-                        <div class="text-xs font-medium flex items-center gap-4">
-                            <span v-if="props.experience.location" class="flex items-center gap-1.5">
+                        <div class="text-xs font-medium flex max-md:flex-col md:items-center gap-2 md:gap-4">
+                            <span v-if="props.experience.location" class="flex items-center gap-1.5 whitespace-nowrap">
                                 <Icon name="ph-map-trifold-duotone" /> {{ props.experience.location }}
                             </span>
-                            <span v-if="props.experience.office" class="flex items-center gap-1.5">
+                            <span v-if="props.experience.office" class="flex items-center gap-1.5 whitespace-nowrap">
                                 <Icon name="ph-monitor-duotone" /> {{ props.experience.office }}
+                            </span>
+                            <span v-if="props.experience.duration" class="flex items-center gap-1.5 whitespace-nowrap">
+                                <Icon name="ph-calendar-dots-duotone" /> {{ props.experience.duration }}
                             </span>
                         </div>
                     </header>

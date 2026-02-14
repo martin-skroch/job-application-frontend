@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+import moment from 'moment';
 import type { Application, Experience, Impression, Skill } from '~/types'
 
 definePageMeta({ middleware: ['id'] });
@@ -6,8 +7,11 @@ useSeoMeta({robots: 'noindex, nofollow'});
 
 const { apiUrl, apiKey } = useRuntimeConfig().public;
 const { id, isId } = useApplication();
-const { setProfile } = useProfile();
+const { profile, mapLink, github, setProfile } = useProfile();
 const router = useRouter();
+
+const email = ref<string | null>(null);
+const phone = ref<string | null>(null);
 
 const application = ref<Application | null>(null);
 const experiences = ref<Experience[]>([]);
@@ -16,6 +20,7 @@ const training = ref<Experience[]>([]);
 const school = ref<Experience[]>([]);
 const skills = ref<Skill[]>([]);
 const impressions = ref<Impression[]>([]);
+
 const loading = ref<boolean>(false);
 const error = ref<string | null>(null);
 
@@ -54,6 +59,15 @@ onMounted(async () => {
             school.value = application.value.school;
             skills.value = application.value.skills;
             impressions.value = application.value.impressions;
+
+
+            if (typeof profile.value.email === 'string' && profile.value.email !== '') {
+                email.value = window.atob(profile.value.email).replace('mailto:', '');
+            }
+
+            if (typeof profile.value.phone === 'string' && profile.value.phone !== '') {
+                phone.value = window.atob(profile.value.phone).replace('tel:', '').replace('+49', '0');
+            }
         }
 
     } catch (e) {
@@ -85,17 +99,70 @@ onMounted(async () => {
     </Transition>
 
     <div v-if="!loading">
-        <AppHeroNew id="einleitung" scroll-target="anschreiben" :application="application">
-            {{ application?.text }}
-        </AppHeroNew>
+        <AppSection id="einleitung" class="relative min-h-lvh flex flex-col justify-center items-center" spacing="">
+            <div class="max-w-sm mx-auto space-y-8 text-center">
+                <AppAvatar class="size-26 border-5 mx-auto" />
 
-        <AppSection v-if="application?.text || application?.contact" id="anschreiben" class="relative overflow-x-hidden dark-mouse-tracker" spacing="">
-            <AppHeading  tag="h2" class="text-[clamp(2rem,7dvw,4rem)] text-center text-primary">
-                Hallo<template v-if="application.contact"> {{ application?.contact }}</template>,
-            </AppHeading>
+                <div class="space-y-3">
+                    <AppHeading class="font-sans font-light text-[clamp(1rem,2dvw,1.2rem)]">
+                        Moin, mein Name ist
+                    </AppHeading>
 
-            <div class="max-w-3xl mx-auto font-display text-2xl/normal text-center space-y-6 bg-white/5 shadow-2xl rounded-md p-8 mt-6">
-                <p v-html="application.text.replace(/(?:\r\n|\r|\n)/g, '<br>')"></p>
+                    <AppHeading tag="h1" class="font-bold text-[clamp(2.5rem,4dvw,3rem)] leading-none! text-primary">
+                        {{ profile.name }}
+                    </AppHeading>
+                </div>
+
+                <nav class="space-y-2">
+                    <div v-if="profile.location" class="flex items-center gap-2 text-sm">
+                        <span class="inline-flex items-center gap-1"><Icon name="ph:map-pin-area-duotone" /> Wohnort</span>
+                        <span class="grow border-b border-dashed border-zinc-500"></span>
+                        <span v-if="!mapLink">{{ profile.location }}</span>
+                        <a :href="mapLink" target="_blank" rel="noopener" v-else>{{ profile.location }}</a>
+                    </div>
+
+                    <div v-if="profile.birthdate" class="flex items-center gap-2 text-sm">
+                        <span class="inline-flex items-center gap-1"><Icon name="ph:cake-duotone" /> Geburtsdatum</span>
+                        <span class="grow border-b border-dashed border-zinc-500"></span>
+                        <span>{{ moment(profile.birthdate).format('DD.MM.YYYY') }}</span>
+                    </div>
+
+                    <div v-if="email" class="flex items-center gap-2 text-sm">
+                        <span class="inline-flex items-center gap-1"><Icon name="ph:at-duotone" /> E-Mail</span>
+                        <span class="grow border-b border-dashed border-zinc-500"></span>
+                        <a :href="'mailto:' + email">{{ email }}</a>
+                    </div>
+
+                    <div v-if="phone" class="flex items-center gap-2 text-sm">
+                        <span class="inline-flex items-center gap-1"><Icon name="ph:phone-duotone" /> Telefon</span>
+                        <span class="grow border-b border-dashed border-zinc-500"></span>
+                        <a :href="'tel:' + phone">{{ phone }}</a>
+                    </div>
+
+                    <div v-if="github" class="flex items-center gap-2 text-sm">
+                        <span class="inline-flex items-center gap-1"><Icon name="ph:github-logo-duotone" /> GitHub</span>
+                        <span class="grow border-b border-dashed border-zinc-500"></span>
+                        <a :href="github" target="_blank" rel="noopener">{{ github.replace('https://github.com/', '@') }}</a>
+                    </div>
+                </nav>
+            </div>
+
+            <a href="#anschreiben" role="button" class="absolute bottom-0 left-1/2 -translate-x-1/2 p-4 no-hover">
+                <svg class="stroke-current opacity-30 w-12 p-2 -m-2 h-auto stroke-[0.04em] animate-bounce" viewBox="0 0 29.712 8.8547" xmlns="http://www.w3.org/2000/svg">
+                    <path d="m29.476 0.44055-14.62 7.8467-14.62-7.8467" fill="none" stroke="currentColor" />
+                </svg>
+            </a>
+        </AppSection>
+
+        <AppSection v-if="application?.text || application?.contact" id="anschreiben" class="bg-secondary text-zinc-300 border-t border-zinc-800 relative overflow-x-hidden">
+            <div class="space-y-8">
+                <AppHeading v-if="application?.title" tag="h2" class="font-display leading-tight text-primary text-[clamp(1.5rem,7dvw,3rem)] text-center">
+                    Bewerbung als {{ application.title }}
+                </AppHeading>
+
+                <div v-if="application.text" class="max-w-3xl mx-auto font-light leading-relaxed text-center">
+                    <p v-html="application.text.replace(/(?:\r\n|\r|\n)/g, '<br>')"></p>
+                </div>
             </div>
         </AppSection>
 
@@ -124,12 +191,12 @@ onMounted(async () => {
         </AppSection>
 
         <AppSection v-if="skills.length > 0" id="faehigkeiten" heading="Fähigkeiten" class="bg-primary text-secondary ">
-            <div class="grid md:grid-cols-2 gap-y-4 gap-x-16">
+            <div class="grid md:grid-cols-2 gap-y-2 md:gap-y-4 gap-x-16">
                 <AppSkill v-for="skill in skills" v-bind:key="skill.id" :skill="skill" />
             </div>
         </AppSection>
 
-        <AppSection v-if="impressions.length > 0" id="persoenliches" heading="Was ich privat so treibe">
+        <AppSection v-if="impressions.length > 0" id="persoenliches" heading="Perönliches">
             <div class="space-y-20 xl:space-y-32">
                 <AppImpression v-for="item in impressions" :impression="item" v-bind:key="item.id" />
             </div>

@@ -33,9 +33,9 @@ if (props.application?.title) {
 
             <AppHeading tag="h2" class="font-light text-lg md:text-2xl lg:text-3xl" v-if="title">{{ title }}</AppHeading>
 
-            <!-- <div v-if="slots.default" class="max-w-xl font-display text-base space-y-6 bg-white/5 shadow-2xl rounded-md p-4">
+            <div v-if="slots.default" class="max-w-xl font-display text-base space-y-6 bg-white/5 shadow-2xl rounded-md p-4">
                 <slot />
-            </div> -->
+            </div>
 
             <AppMetaNavigation />
         </div>

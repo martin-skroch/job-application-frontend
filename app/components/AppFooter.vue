@@ -3,7 +3,7 @@
         <div class="flex flex-col gap-4">
             <AppMetaNavigation />
 
-            <div class="inline-flex flex-wrap items-center justify-center gap-3 text-xl">
+            <nav class="inline-flex flex-wrap items-center justify-center gap-4 text-xl">
                 <span class="text-sm text-zinc-500">Verwendete Technologien:</span>
 
                 <a href="https://laravel.com" target="_blank" rel="noopener" class="no-hover" title="Laravel - The PHP Framework For Web Artisans">
@@ -17,7 +17,18 @@
                 <a href="https://tailwindcss.com" target="_blank" rel="noopener" class="no-hover" title="Tailwind CSS - A utility-first CSS framework">
                     <Icon name="skill-icons:tailwindcss-dark" />
                 </a>
-            </div>
+            </nav>
+
+            <nav class="inline-flex flex-wrap items-center justify-center gap-4 text-xl">
+                <span class="text-sm text-zinc-500">Quelltext:</span>
+
+                <a href="https://github.com/martin-skroch/job-application-backend" class="flex items-center gap-1 text-sm no-hover">
+                    <Icon name="ph:github-logo-duotone" /> Backend
+                </a>
+                <a href="https://github.com/martin-skroch/job-application-frontend" class="flex items-center gap-1 text-sm no-hover">
+                    <Icon name="ph:github-logo-duotone" /> Frontend
+                </a>
+            </nav>
         </div>
     </AppSection>
 </template>
