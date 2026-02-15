@@ -4,8 +4,9 @@ import type { Profile } from "./types"
 const profile: Profile = {
     image: '/images/avatar.webp',
     name: 'Martin Skroch',
-    email: 'bWFpbHRvOm1hcnRpbkBza3JvY2guZGU=',
+    location: 'Mecklenburg-Vorpommern',
     birthdate: '1985-09-18',
+    email: 'bWFpbHRvOm1hcnRpbkBza3JvY2guZGU=',
 }
 
 const today = moment();

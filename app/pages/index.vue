@@ -1,14 +1,8 @@
 <script lang="ts" setup>
 import { object, string } from 'yup';
 import { Form } from 'vee-validate';
-import moment from 'moment';
 
 const { apiUrl, apiKey } = useRuntimeConfig().public;
-
-const today = moment();
-const birth = moment('1985-09-18');
-const age = ref<number>();
-age.value = moment.duration(today.diff(birth)).years();
 
 const loading = ref<boolean>(false);
 const error = ref<string | null>(null);
@@ -46,10 +40,9 @@ const request = async (values: object) => {
 </script>
 
 <template>
-    <AppHeroNew id="einleitung">
-        <!-- <p>Als Full Stack Developer verbinde ich Backend, Datenbank und Frontend zu durchdachten Gesamtlösungen. Ich arbeite präzise, pragmatisch und mit dem Ziel, langfristig funktionierenden Code zu liefern. Qualität steht für mich über schnellen Kompromissen.</p> -->
-        <p>Ich entwickle Webanwendungen mit technischem Tiefgang und einem klaren Blick für das Wesentliche. Erfahrung bedeutet für mich, Projekte strukturiert umzusetzen und Verantwortung zu übernehmen. Wer einen Entwickler sucht, der mitdenkt, ist hier richtig.</p>
-    </AppHeroNew>
+    <AppHero>
+        <AppHeading tag="h2" class="text-[clamp(1.5rem,4dvw,2rem)]">Full Stack Web Developer</AppHeading>
+    </AppHero>
 
     <AppSection v-if="false" id="onlinebewerbung" class="bg-primary text-secondary">
         <div class="group flex max-md:flex-col md:items-start md:even:flex-row-reverse gap-8 md:gap-16">
