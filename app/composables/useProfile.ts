@@ -13,13 +13,13 @@ export const useProfile = () => {
         profile.value = value;
         config.profile = value;
 
-         if (typeof value.address === 'string' && value.address !== '') {
-            fullAddress.push(value.address);
-        }
+        //  if (typeof value.address === 'string' && value.address !== '') {
+        //     fullAddress.push(value.address);
+        // }
 
-        if (typeof value.post_code === 'string' && value.post_code !== '') {
-            fullAddress.push(value.post_code);
-        }
+        // if (typeof value.post_code === 'string' && value.post_code !== '') {
+        //     fullAddress.push(value.post_code);
+        // }
 
         if (typeof value.location === 'string' && value.post_code !== '') {
             fullAddress.push(value.location);
