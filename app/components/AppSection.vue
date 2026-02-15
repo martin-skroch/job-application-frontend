@@ -10,7 +10,7 @@ const props = defineProps({
     },
     spacing: {
         type: String,
-        default: 'space-y-12 lg:space-y-16 xl:space-y-24',
+        default: 'space-y-8 lg:space-y-12',
     },
     container: {
         type: Boolean,
