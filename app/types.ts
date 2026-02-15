@@ -64,3 +64,13 @@ export interface File {
     mime: string,
     size: string,
 }
+
+export interface FormValues {
+    company: string;
+    name: string;
+    email: string;
+}
+
+export interface FormActions {
+    resetForm: () => void;
+}
