@@ -12,7 +12,7 @@ onMounted(() => {
 </script>
 
 <template>
-    <AppSection class="relative min-h-lvh flex flex-col justify-center items-center" spacing="">
+    <AppSection class="relative min-h-svh flex flex-col justify-center items-center" spacing="">
         <div class="max-w-md mx-auto space-y-8 text-center">
             <AppAvatar class="size-26 border-5 mx-auto" />
 
@@ -45,13 +45,13 @@ onMounted(() => {
                 <div v-if="emailLabel" class="flex items-center gap-2 text-sm">
                     <span class="inline-flex items-center gap-1"><Icon name="ph:at-duotone" /> E-Mail</span>
                     <span class="grow border-b border-dashed border-zinc-500"></span>
-                    <a @click="email" class="cursor-pointer">{{ emailLabel }}</a>
+                    <button @click.prevent.stop="email" class="as-link">{{ emailLabel }}</button>
                 </div>
 
                 <div v-if="phoneLabel" class="flex items-center gap-2 text-sm">
                     <span class="inline-flex items-center gap-1"><Icon name="ph:phone-duotone" /> Telefon</span>
                     <span class="grow border-b border-dashed border-zinc-500"></span>
-                    <a @click="phone" class="cursor-pointer">{{ phoneLabel }}</a>
+                    <button @click.prevent.stop="phone" class="as-link">{{ phoneLabel }}</button>
                 </div>
 
                 <div v-if="github" class="flex items-center gap-2 text-sm">

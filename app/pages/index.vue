@@ -45,10 +45,10 @@ const request = async (values: SubmissionHandler<GenericObject>, { resetForm }: 
 
 <template>
     <AppHero>
-        <AppHeading tag="h2" class="text-[clamp(1.5rem,4dvw,2rem)]">Full Stack Web Developer</AppHeading>
+        <AppHeading tag="h2" class="text-[clamp(1.4rem,3dvw,1.8rem)]">Full Stack Web Developer</AppHeading>
     </AppHero>
 
-    <AppSection id="onlinebewerbung" heading="Ein Blick hinter die Kulissen" class="bg-primary text-secondary">
+    <AppSection id="onlinebewerbung" heading="Ein Blick hinter die Kulissen" class="shadow-[0_0_30rem_0rem_#0008] bg-primary text-secondary">
         <div class="flex max-md:flex-col md:items-start gap-8 md:gap-16">
 
             <div class="md:w-1/2 text-[clamp(1.3rem,3dvw,1.5rem)] leading-relaxed text-center md:text-end">

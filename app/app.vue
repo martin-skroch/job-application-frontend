@@ -1,18 +1,18 @@
 <script setup lang="ts">
-// const description: string | null = 'Lorem ipsum dolor sit amet';
-// const image: string | null = null;
 
 const { profile } = useProfile();
 
-const title: string = profile.value.name + ' - Full Stack Web Developer';
+const title = profile.value.name + ' - Full Stack Web Developer';
+const description = 'Full Stack Web Developer mit Erfahrung in Laravel, Vue.js, Tailwind CSS und weiteren Webtechnologien.';
+const image = '/images/og-image.webp';
 
 useSeoMeta({
     title: title,
     ogTitle: title,
-    // description: description,
-    // ogDescription: description,
-    // ogImage: image,
-    // twitterCard: image,
+    description: description,
+    ogDescription: description,
+    ogImage: image,
+    twitterImage: image,
 });
 </script>
 
