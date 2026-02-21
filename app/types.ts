@@ -12,6 +12,7 @@ export interface Application {
     school: Experience[],
     skills: Skill[],
     impressions: Impression[],
+    salary_desire?: string,
 }
 
 export interface Profile {

@@ -25,11 +25,11 @@ export const useProfile = () => {
         //     fullAddress.push(value.post_code);
         // }
 
-        if (typeof value.birthdate === 'string' && value.birthdate !== '') {
+        if (typeof value.birthdate === 'string' && value.birthdate.trim() !== '') {
             birthdate.value = moment(value.birthdate).format('DD.MM.YYYY');
         }
 
-        if (typeof value.location === 'string' && value.location !== '') {
+        if (typeof value.location === 'string' && value.location.trim() !== '') {
             fullAddress.push(value.location);
         }
 
@@ -37,11 +37,11 @@ export const useProfile = () => {
             mapLink.value = 'https://www.google.de/maps/search/' + encodeURI(fullAddress.join(','));
         }
 
-        if (typeof profile.value.email === 'string' && profile.value.email !== '') {
+        if (typeof profile.value.email === 'string' && profile.value.email.trim() !== '') {
             emailLabel.value = window.atob(profile.value.email).replace('mailto:', '');
         }
 
-        if (typeof profile.value.phone === 'string' && profile.value.phone !== '') {
+        if (typeof profile.value.phone === 'string' && profile.value.phone.trim() !== '') {
             phoneLabel.value = window.atob(profile.value.phone).replace('tel:', '').replace('+49', '0');
         }
     };

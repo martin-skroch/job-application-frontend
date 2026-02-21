@@ -97,9 +97,9 @@ onMounted(async () => {
     </Transition>
 
     <div v-if="!loading">
-        <AppHero id="einleitung" scroll-target="anschreiben" />
+        <AppHero id="einleitung" scroll-target="anschreiben" :application="application" />
 
-        <AppSection v-if="application?.text || application?.contact" id="anschreiben" class="shadow-[0_0_30rem_0rem_#0007] bg-secondary text-zinc-300 border-t border-zinc-800 relative overflow-x-hidden">
+        <AppSection v-if="application?.text" id="anschreiben" class="shadow-[0_0_30rem_0rem_#0007] bg-secondary text-zinc-300 border-t border-zinc-800 relative overflow-x-hidden">
             <div class="space-y-8">
                 <AppHeading v-if="application?.title" tag="h2" class="font-display leading-tight text-primary text-[clamp(1.5rem,7dvw,3rem)] text-center">
                     Bewerbung als {{ application.title }}

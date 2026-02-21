@@ -29,6 +29,12 @@ onMounted(() => {
             </div>
 
             <nav class="space-y-2">
+                <div v-if="typeof application?.salary_desire === 'string'" class="flex items-center gap-2 text-sm">
+                    <span class="inline-flex items-center gap-1"><Icon name="ph:money-duotone" /> Gehaltswunsch<small class="text-zinc-500">(Brutto/Jahr)</small></span>
+                    <span class="grow border-b border-dashed border-zinc-500"></span>
+                    <span>{{ application.salary_desire }}</span>
+                </div>
+
                 <div v-if="profile.location" class="flex items-center gap-2 text-sm">
                     <span class="inline-flex items-center gap-1"><Icon name="ph:map-pin-area-duotone" /> Wohnort</span>
                     <span class="grow border-b border-dashed border-zinc-500"></span>
