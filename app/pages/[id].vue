@@ -105,9 +105,9 @@ onMounted(async () => {
     </Transition>
 
     <div v-if="!loading">
-        <AppHero v-if="false" id="einleitung" :scroll-target="typeof application?.text === 'string' ? 'anschreiben' : 'werdegang'" :application="application" />
+        <AppHero id="einleitung" :scroll-target="typeof application?.text === 'string' ? 'anschreiben' : 'werdegang'" :application="application" />
 
-        <AppSection v-if="false && typeof application?.text === 'string'" id="anschreiben" class="shadow-[0_0_30rem_0rem_#0007] bg-secondary text-zinc-300 border-t border-zinc-800 relative overflow-x-hidden">
+        <AppSection v-if="typeof application?.text === 'string'" id="anschreiben" class="shadow-[0_0_30rem_0rem_#0007] bg-secondary text-zinc-300 border-t border-zinc-800 relative overflow-x-hidden">
             <div class="space-y-10 text-center">
                 <div class="space-y-2">
                     <AppHeading v-if="typeof application?.company === 'string'" class="font-normal text-[clamp(1rem,2vw,1.2rem)]">
