@@ -122,15 +122,15 @@ onMounted(async () => {
                 </div>
 
                 <div class="max-w-md mx-auto space-y-2 text-center">
-                    <div v-if="typeof application?.company === 'string'" class="flex items-center gap-2 text-sm">
-                        <span class="inline-flex items-center gap-1"><Icon name="ph:building-office-duotone" /> Firma</span>
-                        <span class="grow border-b border-dashed border-current/50"></span>
-                        <span>{{ application.company }}</span>
-                    </div>
                     <div v-if="typeof application?.source === 'string'" class="flex items-center gap-2 text-sm">
                         <span class="inline-flex items-center gap-1"><Icon name="ph:binoculars-duotone" />Stellenausschreibung</span>
                         <span class="grow border-b border-dashed border-current/50"></span>
                         <a :href="application.source" target="_blank" rel="noopener" :title="application.source">{{ extractDomain(application.source) }}</a>
+                    </div>
+                    <div v-if="typeof application?.company === 'string'" class="flex items-center gap-2 text-sm">
+                        <span class="inline-flex items-center gap-1"><Icon name="ph:building-office-duotone" /> Firma</span>
+                        <span class="grow border-b border-dashed border-current/50"></span>
+                        <span>{{ application.company }}</span>
                     </div>
                     <div v-if="typeof application?.salary_desire === 'string'" class="flex items-center gap-2 text-sm">
                         <span class="inline-flex items-center gap-1"><Icon name="ph:calendar-dot-duotone" /> Gehaltswunsch<small class="text-zinc-500">(Brutto/Jahr)</small></span>
