@@ -1,6 +1,7 @@
 export interface Application {
     id: string,
     title: string,
+    source?: string,
     greeting?: string,
     text?: string,
     company?: string,

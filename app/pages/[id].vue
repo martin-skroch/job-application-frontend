@@ -97,16 +97,38 @@ onMounted(async () => {
     </Transition>
 
     <div v-if="!loading">
-        <AppHero id="einleitung" scroll-target="anschreiben" :application="application" />
+        <AppHero id="einleitung" :scroll-target="typeof application?.text === 'string' ? 'anschreiben' : 'werdegang'" :application="application" />
 
-        <AppSection v-if="application?.text" id="anschreiben" class="shadow-[0_0_30rem_0rem_#0007] bg-secondary text-zinc-300 border-t border-zinc-800 relative overflow-x-hidden">
-            <div class="space-y-8">
-                <AppHeading v-if="application?.title" tag="h2" class="font-display leading-tight text-primary text-[clamp(1.5rem,7dvw,3rem)] text-center">
+        <AppSection v-if="typeof application?.text === 'string'" id="anschreiben" class="shadow-[0_0_30rem_0rem_#0007] bg-secondary text-zinc-300 border-t border-zinc-800 relative overflow-x-hidden">
+            <div class="space-y-8 text-center">
+                <AppHeading v-if="typeof application?.title === 'string'" tag="h2" class="text-primary text-[clamp(1.5rem,7dvw,3rem)]">
                     Bewerbung als {{ application.title }}
                 </AppHeading>
 
-                <div v-if="application.text" class="max-w-3xl mx-auto font-light leading-relaxed text-center">
+                <AppHeading v-if="typeof application?.company === 'string'" tag="h3" class="font-bold text-[clamp(1rem,2dvw,1.5rem)]">
+                    bei {{ application.company }}
+                </AppHeading>
+
+                <div v-if="typeof application.text === 'string'" class="max-w-3xl mx-auto font-light leading-relaxed text-center">
                     <p v-html="application.text.replace(/(?:\r\n|\r|\n)/g, '<br>')"></p>
+                </div>
+
+                <div class="max-w-md mx-auto space-y-2 text-center">
+                    <div v-if="typeof application?.company === 'string'" class="flex items-center gap-2 text-sm">
+                        <span class="inline-flex items-center gap-1"><Icon name="ph:building-office-duotone" /> Firma</span>
+                        <span class="grow border-b border-dashed border-current/50"></span>
+                        <span>{{ application.company }}</span>
+                    </div>
+                    <div v-if="typeof application?.source === 'string'" class="flex items-center gap-2 text-sm">
+                        <span class="inline-flex items-center gap-1"><Icon name="ph:binoculars-duotone" />Stellenausschreibung</span>
+                        <span class="grow border-b border-dashed border-current/50"></span>
+                        <a :href="application.source" target="_blank" rel="noopener" :title="application.source">Link</a>
+                    </div>
+                    <div v-if="typeof application?.salary_desire === 'string'" class="flex items-center gap-2 text-sm">
+                        <span class="inline-flex items-center gap-1"><Icon name="ph:calendar-dot-duotone" /> Gehaltswunsch<small class="text-zinc-500">(Brutto/Jahr)</small></span>
+                        <span class="grow border-b border-dashed border-current/50"></span>
+                        <span>{{ application.salary_desire }}</span>
+                    </div>
                 </div>
             </div>
         </AppSection>
