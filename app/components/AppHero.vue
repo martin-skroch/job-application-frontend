@@ -18,8 +18,7 @@ onMounted(() => {
 
             <div class="space-y-6">
                 <AppHeading class="font-sans font-light text-[clamp(1rem,2dvw,1.2rem)]">
-                    <template v-if="application?.contact || application?.company">Hallo <span class="font-bold">{{ application?.contact || application?.company }}</span></template>
-                    <template v-else>Hallo</template>
+                    Hallo, ich bin
                 </AppHeading>
 
                 <AppHeading tag="h1" class="font-bold text-[clamp(2.5rem,4dvw,3rem)] leading-none! text-primary">

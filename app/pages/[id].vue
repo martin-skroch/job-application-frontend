@@ -108,16 +108,22 @@ onMounted(async () => {
         <AppHero id="einleitung" :scroll-target="typeof application?.text === 'string' ? 'anschreiben' : 'werdegang'" :application="application" />
 
         <AppSection v-if="typeof application?.text === 'string'" id="anschreiben" class="shadow-[0_0_30rem_0rem_#0007] bg-secondary text-zinc-300 border-t border-zinc-800 relative overflow-x-hidden">
-            <div class="space-y-8 text-center">
-                <AppHeading v-if="typeof application?.title === 'string'" tag="h2" class="text-primary text-[clamp(1.5rem,7dvw,3rem)]">
-                    Bewerbung als {{ application.title }}
-                </AppHeading>
+            <div class="space-y-10 text-center">
+                <div class="space-y-2">
+                    <AppHeading v-if="typeof application?.company === 'string'" class="font-normal text-[clamp(1rem,2vw,1.2rem)]">
+                        Bewerbung als
+                    </AppHeading>
 
-                <AppHeading v-if="typeof application?.company === 'string'" tag="h3" class="font-bold text-[clamp(1rem,2dvw,1.5rem)]">
-                    bei {{ application.company }}
-                </AppHeading>
+                    <AppHeading v-if="typeof application?.title === 'string'" tag="h2" class="text-primary text-[clamp(1.7rem,4vw,2.5rem)]">
+                        {{ application.title }}
+                    </AppHeading>
 
-                <div v-if="typeof application.text === 'string'" class="max-w-3xl mx-auto font-light leading-relaxed text-center">
+                    <AppHeading v-if="typeof application?.company === 'string'" tag="h3" class="font-normal text-[clamp(1rem,2vw,1.2rem)]">
+                        bei <span class="font-bold">{{ application.company }}</span>
+                    </AppHeading>
+                </div>
+
+                <div v-if="typeof application.text === 'string'" class="max-w-3xl text-sm mx-auto font-light leading-normal text-center">
                     <p v-html="application.text.replace(/(?:\r\n|\r|\n)/g, '<br>')"></p>
                 </div>
 
