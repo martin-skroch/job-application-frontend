@@ -23,6 +23,14 @@ const impressions = ref<Impression[]>([]);
 const loading = ref<boolean>(false);
 const error = ref<string | null>(null);
 
+const extractDomain = (url?: string | null) => {
+    if (typeof url !== 'string') {
+        return url;
+    }
+
+    return new URL(url).hostname.replace(new RegExp('www.', 'i'), '');
+}
+
 watch(loading, (loading) => {
     if (import.meta.client) {
         document.body.style.overflow = loading ? 'hidden' : '';
@@ -122,7 +130,7 @@ onMounted(async () => {
                     <div v-if="typeof application?.source === 'string'" class="flex items-center gap-2 text-sm">
                         <span class="inline-flex items-center gap-1"><Icon name="ph:binoculars-duotone" />Stellenausschreibung</span>
                         <span class="grow border-b border-dashed border-current/50"></span>
-                        <a :href="application.source" target="_blank" rel="noopener" :title="application.source">Link</a>
+                        <a :href="application.source" target="_blank" rel="noopener" :title="application.source">{{ extractDomain(application.source) }}</a>
                     </div>
                     <div v-if="typeof application?.salary_desire === 'string'" class="flex items-center gap-2 text-sm">
                         <span class="inline-flex items-center gap-1"><Icon name="ph:calendar-dot-duotone" /> Gehaltswunsch<small class="text-zinc-500">(Brutto/Jahr)</small></span>
