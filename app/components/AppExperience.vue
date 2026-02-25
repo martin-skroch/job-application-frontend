@@ -80,9 +80,9 @@ if (!exit.value.isValid()) {
                             <span v-if="props.experience.office" class="flex items-center gap-1.5 whitespace-nowrap">
                                 <Icon name="ph-monitor-duotone" /> {{ props.experience.office }}
                             </span>
-                            <span v-if="props.experience.duration" class="flex items-center gap-1.5 whitespace-nowrap">
+                            <!-- <span v-if="props.experience.duration" class="flex items-center gap-1.5 whitespace-nowrap">
                                 <Icon name="ph-calendar-dots-duotone" /> {{ props.experience.duration }}
-                            </span>
+                            </span> -->
                         </div>
                     </header>
 
