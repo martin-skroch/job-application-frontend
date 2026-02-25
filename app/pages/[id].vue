@@ -162,50 +162,32 @@ onMounted(async () => {
 
         <AppSection v-if="experiences.length > 0" id="werdegang" heading="Werdegang" class="bg-primary text-secondary relative overflow-x-hidden dark-mouse-tracker">
             <div>
-                <AppExperienceNew v-for="(item, index) in experiences" :key="item.id" :experience="item" :index="index" />
-            </div>
-
-            <!--
-            <div class="space-y-20 xl:space-y-32">
                 <AppExperience v-for="(item, index) in experiences" :key="item.id" :experience="item" :index="index" />
             </div>
-            -->
         </AppSection>
 
         <AppSection v-if="educations.length > 0" id="fortbildung" heading="Fortbildung" class="relative overflow-x-hidden dark-mouse-tracker">
             <div>
-                <AppExperienceNew v-for="(item, index) in educations" :key="item.id" :experience="item" :index="index" class="[--icon-bg-color:var(--color-foreground)] [--icon-text-color:var(--color-background)]">
+                <AppExperience v-for="(item, index) in educations" :key="item.id" :experience="item" :index="index" class="[--icon-bg-color:var(--color-foreground)] [--icon-text-color:var(--color-background)]">
                     <template v-slot:icon><Icon name="ph:lightbulb-filament" /></template>
-                </AppExperienceNew>
+                </AppExperience>
             </div>
-
-            <!-- <div class="space-y-20 xl:space-y-32">
-                <AppExperience v-for="(item, index) in educations" :key="item.id" :experience="item" :index="index" />
-            </div> -->
         </AppSection>
 
         <AppSection v-if="training.length > 0" id="ausbildung" heading="Ausbildung" class="relative overflow-x-hidden dark-mouse-tracker">
             <div>
-                <AppExperienceNew v-for="(item, index) in training" :key="item.id" :experience="item" :index="index" class="[--icon-bg-color:var(--color-foreground)] [--icon-text-color:var(--color-background)]">
+                <AppExperience v-for="(item, index) in training" :key="item.id" :experience="item" :index="index" class="[--icon-bg-color:var(--color-foreground)] [--icon-text-color:var(--color-background)]">
                     <template v-slot:icon><Icon name="ph:chalkboard-teacher" /></template>
-                </AppExperienceNew>
+                </AppExperience>
             </div>
-
-            <!-- <div class="space-y-20 xl:space-y-32">
-                <AppExperience v-for="(item, index) in training" :key="item.id" :experience="item" :index="index" />
-            </div> -->
         </AppSection>
 
         <AppSection v-if="school.length > 0" id="schule" heading="Schule" class="relative overflow-x-hidden dark-mouse-tracker">
             <div>
-                <AppExperienceNew v-for="(item, index) in school" :key="item.id" :experience="item" :index="index" class="[--icon-bg-color:var(--color-foreground)] [--icon-text-color:var(--color-background)]">
+                <AppExperience v-for="(item, index) in school" :key="item.id" :experience="item" :index="index" class="[--icon-bg-color:var(--color-foreground)] [--icon-text-color:var(--color-background)]">
                     <template v-slot:icon><Icon name="ph:backpack" /></template>
-                </AppExperienceNew>
+                </AppExperience>
             </div>
-
-            <!-- <div class="space-y-20 xl:space-y-32">
-                <AppExperience v-for="(item, index) in school" :key="item.id" :experience="item" :index="index" />
-            </div> -->
         </AppSection>
 
         <AppSection v-if="skills.length > 0" id="faehigkeiten" heading="Fähigkeiten" class="bg-primary text-secondary ">
