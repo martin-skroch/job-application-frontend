@@ -55,34 +55,47 @@ onMounted(async () => {
         headers: headers,
     };
 
-    try {
-        application.value = await $fetch(`api/application/${id.value}`, options);
+    await $fetch<Application>(`api/application/${id.value}`, options).then((value) => {
+        application.value = value;
 
-        if (application.value !== null) {
-            setProfile(application.value.profile);
-            experiences.value = application.value.experiences;
-            educations.value = application.value.educations;
-            training.value = application.value.training;
-            school.value = application.value.school;
-            skills.value = application.value.skills;
-            impressions.value = application.value.impressions;
+        setProfile(application.value.profile);
+        experiences.value = application.value.experiences;
+        educations.value = application.value.educations;
+        training.value = application.value.training;
+        school.value = application.value.school;
+        skills.value = application.value.skills;
+        impressions.value = application.value.impressions;
 
-            if (typeof profile.value.email === 'string' && profile.value.email !== '') {
-                email.value = window.atob(profile.value.email).replace('mailto:', '');
-            }
-
-            if (typeof profile.value.phone === 'string' && profile.value.phone !== '') {
-                phone.value = window.atob(profile.value.phone).replace('tel:', '').replace('+49', '0');
-            }
+        if (typeof profile.value.email === 'string' && profile.value.email !== '') {
+            email.value = window.atob(profile.value.email).replace('mailto:', '');
         }
 
-    } catch (e) {
-        error.value = e instanceof Error ? e.message : `The job application could not be loaded: ${id.value}`;
+        if (typeof profile.value.phone === 'string' && profile.value.phone !== '') {
+            phone.value = window.atob(profile.value.phone).replace('tel:', '').replace('+49', '0');
+        }
+
+    }).catch(async (e) => {
+        if (e instanceof Error) {
+            error.value = e.message;
+        } else {
+            error.value = `The job application could not be loaded: ${id.value}`;
+        }
+
+        if (e.status === 410) {
+            console.log('Gone');
+
+            throw createError({
+                fatal: true,
+                status: e.status,
+                statusText: e.message,
+            })
+        }
 
         await router.replace('/');
-    } finally {
+
+    }).finally(() => {
         loading.value = false;
-    }
+    });
 });
 </script>
 
@@ -127,8 +140,8 @@ onMounted(async () => {
                     <p v-html="application.text.replace(/(?:\r\n|\r|\n)/g, '<br>')"></p>
                 </div>
 
-                <div class="max-w-md mx-auto space-y-2 text-center">
-                    <div v-if="typeof application?.source === 'string'" class="flex items-center gap-2 text-sm">
+                <div v-if="application?.salary_desire" class="max-w-md mx-auto space-y-2 text-center">
+                    <!-- <div v-if="typeof application?.source === 'string'" class="flex items-center gap-2 text-sm">
                         <span class="inline-flex items-center gap-1"><Icon name="ph:binoculars-duotone" />Stellenausschreibung</span>
                         <span class="grow border-b border-dashed border-current/50"></span>
                         <a :href="application.source" target="_blank" rel="noopener" :title="application.source">{{ extractDomain(application.source) }}</a>
@@ -137,7 +150,7 @@ onMounted(async () => {
                         <span class="inline-flex items-center gap-1"><Icon name="ph:building-office-duotone" /> Firma</span>
                         <span class="grow border-b border-dashed border-current/50"></span>
                         <span>{{ application.company }}</span>
-                    </div>
+                    </div> -->
                     <div v-if="typeof application?.salary_desire === 'string'" class="flex items-center gap-2 text-sm">
                         <span class="inline-flex items-center gap-1"><Icon name="ph:calendar-dot-duotone" /> Gehaltswunsch<small class="text-zinc-500">(Brutto/Jahr)</small></span>
                         <span class="grow border-b border-dashed border-current/50"></span>

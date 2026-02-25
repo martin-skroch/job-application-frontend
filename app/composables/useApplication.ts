@@ -1,8 +1,8 @@
 export const useApplication = () => {
-    const id = useState<string | null>('id', () => null);
+    const id = useState<string | undefined>('id');
 
-    const isId = (value: string | null = null) => {
-        const v: string | null = value ?? id.value;
+    const isId = (value: string | undefined = undefined) => {
+        const v: string | undefined = value ?? id.value;
         return typeof v === 'string' && v.length === 10;
     };
 

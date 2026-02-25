@@ -12,7 +12,7 @@ onMounted(() => {
 </script>
 
 <template>
-    <AppSection class="relative min-h-svh flex flex-col justify-center items-center" spacing="">
+    <AppSection class="relative min-h-svh flex flex-col justify-center items-center" :scroll-target="props.scrollTarget" spacing="">
         <div class="max-w-md mx-auto space-y-8 text-center">
             <AppAvatar class="size-26 border-5 mx-auto" />
 
@@ -61,11 +61,5 @@ onMounted(() => {
                 </div>
             </nav>
         </div>
-
-        <a v-if="props.scrollTarget" :href="'#' + props.scrollTarget" role="button" class="absolute bottom-0 left-1/2 -translate-x-1/2 p-4 no-hover">
-            <svg class="stroke-current opacity-30 w-12 p-2 -m-2 h-auto stroke-[0.04em] animate-bounce" viewBox="0 0 29.712 8.8547" xmlns="http://www.w3.org/2000/svg">
-                <path d="m29.476 0.44055-14.62 7.8467-14.62-7.8467" fill="none" stroke="currentColor" />
-            </svg>
-        </a>
     </AppSection>
 </template>
