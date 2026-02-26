@@ -138,9 +138,11 @@ const leave = (element: Element) => {
                         </span> -->
                     </div>
 
-                    <div v-if="skills.length > 0" class="space-y-2">
+                    <div class="h-0 border-b border-secondary/10 -mt-2 mb-5"></div>
+
+                    <div v-if="props.experience.description" class="space-y-2">
                         <h4 class="flex items-center gap-1 text-xs font-medium">
-                            <Icon name="ph:brackets-curly-duotone" /> Tätigkeiten
+                            <Icon name="ph:text-align-left-duotone" /> Beschreibung
                         </h4>
                         <div class="max-w-xl text-sm/relaxed" v-if="props.experience.description">
                             <p>{{ props.experience.description }}</p>
@@ -152,7 +154,7 @@ const leave = (element: Element) => {
                             <Icon name="ph:brackets-curly-duotone" /> Technologien
                         </h4>
                         <div class="flex flex-wrap gap-2">
-                            <button v-for="(skill, index) in skills" v-bind:key="index" type="button" class="inline-flex items-center gap-1.5 text-xs bg-current/10 border-current text-current rounded-sm leading-none whitespace-nowrap py-1.5 px-2">
+                            <button v-for="(skill, index) in skills" v-bind:key="index" type="button" class="inline-flex items-center gap-1.5 text-xs bg-current/10 border-current text-current rounded-sm leading-none whitespace-nowrap py-1 px-1.5">
                                 {{ skill.name }} <span v-if="skill.info" class="text-[0.6rem] opacity-75">({{ skill.info
                                     }})</span>
                             </button>
@@ -164,7 +166,7 @@ const leave = (element: Element) => {
                             <Icon name="ph:paperclip-duotone" /> Anhänge
                         </h4>
                         <div class="flex flex-col items-start gap-1">
-                            <a :href="file.url" v-for="(file, index) in files" v-bind:key="index" target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 text-xs bg-current/10 hover:bg-current/20 border-current text-current rounded-sm leading-none whitespace-nowrap py-1.5 px-2 no-hover">
+                            <a :href="file.url" v-for="(file, index) in files" v-bind:key="index" target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 text-xs bg-current/10 hover:bg-current/20 border-current text-current rounded-sm leading-none whitespace-nowrap py-1 px-1.5 no-hover">
                                 <Icon :name="'ph:file-' + file.mime.split('/').at(-1) + '-duotone'" />
                                 <span>{{ file.title }}</span>
                                 <span v-if="file.size" class="text-[0.6rem] opacity-75">({{ file.size }})</span>
