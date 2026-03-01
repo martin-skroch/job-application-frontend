@@ -155,8 +155,7 @@ const leave = (element: Element) => {
                         </h4>
                         <div class="flex flex-wrap gap-2">
                             <button v-for="(skill, index) in skills" v-bind:key="index" type="button" class="inline-flex items-center gap-1.5 text-xs bg-current/10 border-current text-current rounded-sm leading-none whitespace-nowrap py-1 px-1.5">
-                                {{ skill.name }} <span v-if="skill.info" class="text-[0.6rem] opacity-75">({{ skill.info
-                                    }})</span>
+                                {{ skill.name }} <span v-if="skill.info" class="text-[0.6rem] opacity-75">({{ skill.info }})</span>
                             </button>
                         </div>
                     </div>
