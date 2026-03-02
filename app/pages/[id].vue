@@ -152,7 +152,7 @@ onMounted(async () => {
                         <span>{{ application.company }}</span>
                     </div> -->
                     <div v-if="typeof application?.salary_desire === 'string'" class="flex items-center gap-2 text-sm">
-                        <span class="inline-flex items-center gap-1"><Icon name="ph:calendar-dot-duotone" /> Gehaltswunsch<small class="text-zinc-500">(Brutto/Jahr)</small></span>
+                        <span class="inline-flex items-center gap-1"><Icon name="ph:money-duotone" /> Gehaltswunsch<small class="text-current/60">(Brutto/Jahr)</small></span>
                         <span class="grow border-b border-dashed border-current/50"></span>
                         <span>{{ application.salary_desire }}</span>
                     </div>
