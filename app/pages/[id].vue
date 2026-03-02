@@ -121,22 +121,22 @@ onMounted(async () => {
         <AppHero id="einleitung" :scroll-target="typeof application?.text === 'string' ? 'anschreiben' : 'werdegang'" :application="application" />
 
         <AppSection v-if="typeof application?.text === 'string'" id="anschreiben" class="shadow-[0_0_30rem_0rem_#0007] bg-primary text-secondary">
-            <div class="space-y-10 text-center">
+            <div class="max-w-2xl mx-auto space-y-10 text-center">
                 <div class="space-y-2">
-                    <AppHeading v-if="typeof application?.company === 'string'" class="font-normal text-[clamp(1rem,2vw,1.2rem)]">
+                    <AppHeading v-if="typeof application?.company === 'string'" class="font-sans">
                         Bewerbung als
                     </AppHeading>
 
-                    <AppHeading v-if="typeof application?.title === 'string'" tag="h2" class="text-[clamp(1.7rem,4vw,2.5rem)]">
+                    <AppHeading v-if="typeof application?.title === 'string'" tag="h2" class="font-sans text-[clamp(1.5rem,4vw,2rem)]">
                         {{ application.title }}
                     </AppHeading>
 
-                    <AppHeading v-if="typeof application?.company === 'string'" tag="h3" class="font-normal text-[clamp(1rem,2vw,1.2rem)]">
+                    <AppHeading v-if="typeof application?.company === 'string'" tag="h3" class="font-sans">
                         bei <span class="font-bold">{{ application.company }}</span>
                     </AppHeading>
                 </div>
 
-                <div v-if="typeof application.text === 'string'" class="max-w-3xl text-sm mx-auto font-medium leading-normal text-center">
+                <div v-if="typeof application.text === 'string'" class="leading-normal text-center">
                     <p v-html="application.text.replace(/(?:\r\n|\r|\n)/g, '<br>')"></p>
                 </div>
 

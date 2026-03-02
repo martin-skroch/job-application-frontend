@@ -45,4 +45,15 @@
     .as-link:not(.no-hover):hover {
         @apply text-primary border-primary;
     }
+
+    .bg-primary a:not(.no-hover),
+    .bg-primary .as-link:not(.no-hover) {
+        @apply relative border-solid before:transition-all before:absolute before:bg-current/15 before:h-0 before:left-0 before:right-0 before:bottom-0;
+    }
+
+    .bg-primary a:not(.no-hover):hover,
+    .bg-primary .as-link:not(.no-hover):hover {
+        @apply text-current border-current before:h-full;
+    }
+
 }
