@@ -10,8 +10,8 @@ const props = defineProps<{ impression: Impression }>();
             <AppImage :src="impression.image" :alt="impression.title" class="text-primary" />
         </div>
         <div class="md:w-4/6 group-even:text-end space-y-4">
-            <AppHeading tag="h3" v-if="impression.title" class="text-[clamp(2rem,6dvw,4rem)] leading-tight text-primary font-bold">{{ impression.title }}</AppHeading>
-            <p class="text-[clamp(1.2rem,3dvw,1.5rem)] leading-normal">{{ impression.description }}</p>
+            <AppHeading tag="h3" v-if="impression.title" class="text-[clamp(1.6rem,5dvw,2.5rem)] leading-tight text-primary font-bold">{{ impression.title }}</AppHeading>
+            <p class="text-[clamp(1rem,3dvw,1.2rem)] leading-normal">{{ impression.description }}</p>
         </div>
     </div>
 </template>

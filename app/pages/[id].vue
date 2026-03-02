@@ -120,14 +120,14 @@ onMounted(async () => {
     <div v-if="!loading">
         <AppHero id="einleitung" :scroll-target="typeof application?.text === 'string' ? 'anschreiben' : 'werdegang'" :application="application" />
 
-        <AppSection v-if="typeof application?.text === 'string'" id="anschreiben" class="shadow-[0_0_30rem_0rem_#0007] bg-secondary text-zinc-300 border-t border-zinc-800 relative overflow-x-hidden">
+        <AppSection v-if="typeof application?.text === 'string'" id="anschreiben" class="shadow-[0_0_30rem_0rem_#0007] bg-primary text-secondary">
             <div class="space-y-10 text-center">
                 <div class="space-y-2">
                     <AppHeading v-if="typeof application?.company === 'string'" class="font-normal text-[clamp(1rem,2vw,1.2rem)]">
                         Bewerbung als
                     </AppHeading>
 
-                    <AppHeading v-if="typeof application?.title === 'string'" tag="h2" class="text-primary text-[clamp(1.7rem,4vw,2.5rem)]">
+                    <AppHeading v-if="typeof application?.title === 'string'" tag="h2" class="text-[clamp(1.7rem,4vw,2.5rem)]">
                         {{ application.title }}
                     </AppHeading>
 
@@ -136,7 +136,7 @@ onMounted(async () => {
                     </AppHeading>
                 </div>
 
-                <div v-if="typeof application.text === 'string'" class="max-w-3xl text-sm mx-auto font-light leading-normal text-center">
+                <div v-if="typeof application.text === 'string'" class="max-w-3xl text-sm mx-auto font-medium leading-normal text-center">
                     <p v-html="application.text.replace(/(?:\r\n|\r|\n)/g, '<br>')"></p>
                 </div>
 
@@ -160,34 +160,40 @@ onMounted(async () => {
             </div>
         </AppSection>
 
-        <AppSection v-if="experiences.length > 0" id="werdegang" heading="Werdegang" class="bg-primary text-secondary relative overflow-x-hidden dark-mouse-tracker">
-            <div>
-                <AppExperience v-for="(item, index) in experiences" :key="item.id" :experience="item" :index="index" />
-            </div>
-        </AppSection>
+        <AppSection id="werdegang" class="relative">
 
-        <AppSection v-if="educations.length > 0" id="fortbildung" heading="Fortbildung" class="relative overflow-x-hidden dark-mouse-tracker">
-            <div>
-                <AppExperience v-for="(item, index) in educations" :key="item.id" :experience="item" :index="index" class="[--icon-bg-color:var(--color-foreground)] [--icon-text-color:var(--color-background)]">
-                    <template v-slot:icon><Icon name="ph:lightbulb-filament" /></template>
-                </AppExperience>
-            </div>
-        </AppSection>
+            <div class="space-y-12 md:space-y-24 [--distance-x:clamp(calc(var(--spacing)*6),3vw,calc(var(--spacing)*8))] [--distance-y:clamp(calc(var(--spacing)*4),3vw,calc(var(--spacing)*8))]">
+                <div v-if="experiences.length > 0">
+                    <AppHeading tag="h2" class="font-sans text-xl md:text-3xl font-medium border-l px-(--distance-y) pb-(--distance-y)">Werdegang</AppHeading>
+                    <div>
+                        <AppExperience v-for="(item, index) in experiences" :key="item.id" :experience="item" :index="index" class="[--icon-bg-color:var(--color-foreground)] [--icon-text-color:var(--color-background)]" />
+                    </div>
+                </div>
 
-        <AppSection v-if="training.length > 0" id="ausbildung" heading="Ausbildung" class="relative overflow-x-hidden dark-mouse-tracker">
-            <div>
-                <AppExperience v-for="(item, index) in training" :key="item.id" :experience="item" :index="index" class="[--icon-bg-color:var(--color-foreground)] [--icon-text-color:var(--color-background)]">
-                    <template v-slot:icon><Icon name="ph:chalkboard-teacher" /></template>
-                </AppExperience>
-            </div>
-        </AppSection>
+                <div v-if="educations.length > 0">
+                    <AppHeading tag="h2" class="font-sans text-xl md:text-3xl font-medium border-l px-(--distance-y) pb-(--distance-y)">Fortbildung</AppHeading>
+                    <div>
+                        <AppExperience v-for="(item, index) in educations" :key="item.id" :experience="item" :index="index" class="[--icon-bg-color:var(--color-foreground)] [--icon-text-color:var(--color-background)]" />
+                    </div>
+                </div>
 
-        <AppSection v-if="school.length > 0" id="schule" heading="Schule" class="relative overflow-x-hidden dark-mouse-tracker">
-            <div>
-                <AppExperience v-for="(item, index) in school" :key="item.id" :experience="item" :index="index" class="[--icon-bg-color:var(--color-foreground)] [--icon-text-color:var(--color-background)]">
-                    <template v-slot:icon><Icon name="ph:backpack" /></template>
-                </AppExperience>
+                <!--
+                <div v-if="training.length > 0">
+                    <AppHeading tag="h2" class="font-sans text-xl md:text-3xl font-medium border-l px-(--distance-y) pb-(--distance-y)">Ausbildung</AppHeading>
+                    <div>
+                        <AppExperience v-for="(item, index) in training" :key="item.id" :experience="item" :index="index" class="[--icon-bg-color:var(--color-foreground)] [--icon-text-color:var(--color-background)]" />
+                    </div>
+                </div>
+
+                <div v-if="school.length > 0">
+                    <AppHeading tag="h2" class="font-sans text-xl md:text-3xl font-medium border-l px-(--distance-y) pb-(--distance-y)">Schule</AppHeading>
+                    <div>
+                        <AppExperience v-for="(item, index) in school" :key="item.id" :experience="item" :index="index" class="[--icon-bg-color:var(--color-foreground)] [--icon-text-color:var(--color-background)]" />
+                    </div>
+                </div>
+                -->
             </div>
+
         </AppSection>
 
         <AppSection v-if="skills.length > 0" id="faehigkeiten" heading="Fähigkeiten" class="bg-primary text-secondary ">
