@@ -93,19 +93,19 @@ const leave = (element: Element) => {
 </style>
 
 <template>
-    <div class="flex [--distance-x:clamp(calc(var(--spacing)*6),3vw,calc(var(--spacing)*8))] [--distance-y:clamp(calc(var(--spacing)*6),3vw,calc(var(--spacing)*8))]">
+    <div class="flex [--distance-x:clamp(calc(var(--spacing)*6),3vw,calc(var(--spacing)*8))] [--distance-y:clamp(calc(var(--spacing)*6),3vw,calc(var(--spacing)*8))] max-md:-mr-6">
 
         <div class="border-r border-solid border-current w-0"></div>
 
         <div class="w-full border-t border-b border-transparent border-dotted py-(--distance-y) space-y-2" :class="{'bg-current/5': open}">
 
-            <button @click="open = !open" class="px-(--distance-x) space-y-1 cursor-pointer w-full text-start">
+            <button @click="open = !open" class="px-(--distance-x) pr-[calc(var(--distance-x)/2)] space-y-1 cursor-pointer w-full text-start">
                 <div class="flex items-center gap-4 relative">
                     <span class="transition-transform scale-3d bg-(--icon-bg-color,var(--color-secondary)) text-(--icon-text-color,var(--color-primary)) text-[0.7rem] rounded-full flex p-1.5 absolute -translate-x-[calc(var(--distance-x)+50%)]" :class="{'scale-130': open}">
                         <slot name="icon"><Icon name="ph:calendar-dots" /></slot>
                     </span>
 
-                    <div class="text-lg md:text-xl flex items-center gap-0.5">
+                    <div class="text-base md:text-lg lg:text-xl flex items-center gap-0.5">
                         <span class="font-medium">{{ entry.format('MM/YYYY') }}</span>
                         <Icon name="ph:dot-duotone" />
                         <span class="font-medium">{{ props.experience.exit ? exit.format('MM/YYYY') : 'heute' }}</span>
@@ -113,7 +113,7 @@ const leave = (element: Element) => {
 
                     <span class="grow border-t border-dashed border-current/50 "></span>
 
-                    <Icon :name="open ? 'ph:x-duotone' : 'ph:caret-down-duotone'" class="shrink-0 text-xl" />
+                    <Icon :name="open ? 'ph:x-duotone' : 'ph:caret-down-duotone'" class="shrink-0 text-2xl" />
                 </div>
 
                 <h3 v-if="props.experience.institution" class="font-medium text-xs leading-normal! flex items-center gap-1">

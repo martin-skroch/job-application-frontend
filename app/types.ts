@@ -13,7 +13,16 @@ export interface Application {
     school: Experience[],
     skills: Skill[],
     impressions: Impression[],
+    contents?: Record<string, Content>,
     salary_desire?: string,
+}
+
+export interface Content {
+    id: string,
+    name: string,
+    heading: string,
+    text: string,
+    image: string | null,
 }
 
 export interface Profile {
