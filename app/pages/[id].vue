@@ -196,7 +196,7 @@ onMounted(async () => {
             </div>
         </AppSection>
 
-        <AppSection v-if="impressions.length > 0" id="persoenliches" heading="Perönliches">
+        <AppSection v-if="impressions.length > 0" id="persoenliches" heading="Persönliches">
             <div class="space-y-20 xl:space-y-32">
                 <AppImpression v-for="item in impressions" :impression="item" v-bind:key="item.id" />
             </div>
