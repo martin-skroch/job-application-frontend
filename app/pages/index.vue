@@ -39,7 +39,7 @@ onMounted(async () => {
         if (e instanceof Error) {
             error.value = e.message;
         } else {
-            error.value = `The job application could not be loaded: ${id.value}`;
+            error.value = `The profile could not be loaded.`;
         }
     }).finally(() => {
         loading.value = false;
