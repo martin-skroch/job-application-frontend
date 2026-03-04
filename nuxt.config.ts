@@ -1,5 +1,7 @@
 import tailwindcss from "@tailwindcss/vite";
 
+const siteUrl = process.env.NUXT_SITE_URL || ''
+
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
     compatibilityDate: '2025-07-15',
@@ -24,12 +26,12 @@ export default defineNuxtConfig({
                 { property: 'og:type', content: 'website' },
                 { property: 'og:locale', content: 'de_DE' },
                 { property: 'og:title', content: 'Martin Skroch - Full Stack Web Developer' },
-                { property: 'og:image', content: '/images/og-image.webp' },
+                { property: 'og:image', content: `${siteUrl}/images/og-image.webp` },
                 { property: 'og:description', content: 'Full Stack Web Developer mit Erfahrung in PHP, Laravel, JavaScript, Vue.js, Tailwind CSS.' },
             ],
             link: [
-                { rel: 'shortcut icon', type: 'image/x-icon', href: '/favicon.ico' },
-                { rel: 'icon', type: 'image/png', href: '/favicon.png' },
+                { rel: 'shortcut icon', type: 'image/x-icon', href: `${siteUrl}/favicon.ico` },
+                { rel: 'icon', type: 'image/png', href: `${siteUrl}/favicon.png` },
             ]
         },
     },
