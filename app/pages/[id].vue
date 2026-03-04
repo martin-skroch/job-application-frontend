@@ -82,8 +82,6 @@ onMounted(async () => {
         }
 
         if (e.status === 410) {
-            console.log('Gone');
-
             throw createError({
                 fatal: true,
                 status: e.status,
