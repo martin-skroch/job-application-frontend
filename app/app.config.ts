@@ -5,7 +5,7 @@ const profile: Profile = {
     image: '/images/avatar.webp',
     name: 'Martin Skroch',
     location: 'Mecklenburg-Vorpommern',
-    birthdate: '1985-09-18',
+    // birthdate: '1985-09-18',
     email: 'bWFpbHRvOm1hcnRpbkBza3JvY2guZGU=',
 }
 
