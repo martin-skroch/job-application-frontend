@@ -19,13 +19,13 @@ export default defineNuxtConfig({
                 lang: 'de',
                 prefix: 'og: http://ogp.me/ns#',
              },
-            // title: 'Martin Skroch - Full Stack Web Developer',
+            title: 'Martin Skroch - Full Stack Web Developer',
             meta: [
                 { property: 'og:type', content: 'website' },
                 { property: 'og:locale', content: 'de_DE' },
-                { name: 'twitter:card', content: 'summary_large_image' },
-                { name: 'twitter:site', content: '@martin_skroch' },
-                { name: 'twitter:creator', content: '@martin_skroch' },
+                { property: 'og:title', content: 'Martin Skroch - Full Stack Web Developer' },
+                { property: 'og:image', content: '/images/og-image.webp' },
+                { property: 'og:description', content: 'Full Stack Web Developer mit Erfahrung in PHP, Laravel, JavaScript, Vue.js, Tailwind CSS.' },
             ],
             link: [
                 { rel: 'shortcut icon', type: 'image/x-icon', href: '/favicon.ico' },
