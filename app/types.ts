@@ -38,6 +38,7 @@ export interface Profile {
     phone?: string,
     email?: string,
     website?: string,
+    skills?: Skill[],
 }
 
 export interface Experience {

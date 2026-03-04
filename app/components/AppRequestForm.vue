@@ -18,7 +18,7 @@ let schema: Record<string, any> | undefined;
 
 if (!isId(props.id)) {
     schema = object({
-        company: string().required('Firma ist erforderlich').typeError('Firma muss ein Text sein'),
+        // company: string().required('Firma ist erforderlich').typeError('Firma muss ein Text sein'),
         name: string().required('Name ist erforderlich').typeError('Name muss ein Text sein'),
         email: string().required('E-Mail ist erforderlich').email('E-Mail ist ungültig').typeError('E-Mail muss ein Text sein'),
     });
@@ -59,8 +59,8 @@ const request : SubmissionHandler<GenericObject, GenericObject, unknown> = async
 <template>
     <Form @submit="request" class="space-y-6" :validation-schema="schema">
         <template v-if="!props.id">
-            <AppInput type="text" name="company" label="Firma" />
-            <AppInput type="text" name="name" label="Name" />
+            <!-- <AppInput type="text" name="company" label="Firma" /> -->
+            <AppInput type="text" name="name" label="Name / Firma" />
             <AppInput type="email" name="email" label="E-Mail" />
 
             <div v-if="error" class="bg-red-700 text-red-100 text-sm rounded-md py-3 px-4 flex items-baseline gap-2">
