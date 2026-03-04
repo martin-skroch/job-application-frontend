@@ -27,7 +27,7 @@ export default defineNuxtConfig({
                 { property: 'og:locale', content: 'de_DE' },
                 { property: 'og:title', content: 'Martin Skroch - Full Stack Web Developer' },
                 { property: 'og:image', content: `${siteUrl}/images/og-image.webp` },
-                { property: 'og:description', content: 'Full Stack Web Developer mit Erfahrung in PHP, Laravel, JavaScript, Vue.js, Tailwind CSS.' },
+                { property: 'og:description', content: 'Erfahrener Entwickler mit Fokus auf PHP und Laravel sowie fundierten Kenntnissen in JavaScript, Vue.js und Tailwind CSS – spezialisiert auf moderne, performante Webanwendungen vom Backend bis zum Frontend.' },
             ],
             link: [
                 { rel: 'shortcut icon', type: 'image/x-icon', href: `${siteUrl}/favicon.ico` },
