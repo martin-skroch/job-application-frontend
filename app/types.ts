@@ -15,6 +15,7 @@ export interface Application {
     impressions: Impression[],
     contents?: Record<string, Content>,
     salary_desire?: string,
+    earliest_entry_date?: string,
 }
 
 export interface Content {

@@ -1,7 +1,6 @@
 <script lang="ts" setup>
 import type { Experience, Skill, File } from '~/types';
 import moment from 'moment';
-import type { VueElement } from 'vue';
 
 const props = defineProps<{ index: number, experience: Experience }>();
 const entry = ref<moment.Moment>(moment(props.experience.entry));
