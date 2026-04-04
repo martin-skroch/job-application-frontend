@@ -36,6 +36,16 @@ export default defineNuxtConfig({
             link: [
                 { rel: 'shortcut icon', type: 'image/x-icon', href: `${siteUrl}/favicon.ico` },
                 { rel: 'icon', type: 'image/png', href: `${siteUrl}/favicon.png` },
+            ],
+            script: [
+                {
+                    'src': 'https://analytics.novusidea.de/script.js',
+                    'data-website-id': '1af575ca-6cf1-4164-aa48-8a8ab6de09db',
+                    'data-domains': 'martin.skroch.de',
+                    'data-do-not-track': true,
+                    'async': true,
+                    'defer': true,
+                }
             ]
         },
     },
