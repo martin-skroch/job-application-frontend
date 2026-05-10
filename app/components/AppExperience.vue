@@ -39,6 +39,19 @@ if (!exit.value.isValid()) {
 
 const open = ref(false);
 
+const toggle = () => {
+    open.value = !open.value;
+
+    if (!umami) {
+        return false;
+    }
+
+    umami.track(
+        event_name: string, 
+        data: object
+    );
+}
+
 const enter = (element: Element) => {
     if (!(element instanceof HTMLElement)) {
         return;
@@ -93,7 +106,7 @@ const leave = (element: Element) => {
 
 <template>
     <div class="max-md:-mr-6 border-l border-current py-(--distance-y) space-y-2" :class="{'bg-current/5': open}">
-        <button @click="open = !open" class="px-(--distance-x)  space-y-1 cursor-pointer w-full text-start">
+        <button @click="toggle" class="px-(--distance-x)  space-y-1 cursor-pointer w-full text-start">
             <div class="flex items-center gap-4 relative">
                 <span class="transition-transform scale-3d bg-(--icon-bg-color,var(--color-secondary)) text-(--icon-text-color,var(--color-primary)) text-[0.7rem] rounded-full flex p-1.5 absolute -translate-x-[calc(var(--distance-x)+50%)]" :class="{'scale-130': open}">
                     <slot name="icon"><Icon name="ph:calendar-dots" /></slot>
