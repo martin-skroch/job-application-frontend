@@ -47,8 +47,8 @@ const toggle = () => {
     }
 
     umami.track(
-        event_name: string, 
-        data: object
+        event_name: 'Open Experience',
+        data: props.experience,
     );
 }
 
