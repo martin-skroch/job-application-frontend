@@ -181,7 +181,6 @@ onMounted(async () => {
                     </div>
                 </div>
 
-                <!--
                 <div v-if="training.length > 0">
                     <AppHeading tag="h2" class="font-sans text-xl md:text-3xl font-medium border-l px-(--distance-y) pb-(--distance-y)">Ausbildung</AppHeading>
                     <div>
@@ -195,7 +194,6 @@ onMounted(async () => {
                         <AppExperience v-for="(item, index) in school" :key="item.id" :experience="item" :index="index" class="[--icon-bg-color:var(--color-foreground)] [--icon-text-color:var(--color-background)]" />
                     </div>
                 </div>
-                -->
             </div>
 
         </AppSection>
