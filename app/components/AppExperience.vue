@@ -42,14 +42,14 @@ const open = ref(false);
 const toggle = () => {
     open.value = !open.value;
 
-    if (!umami) {
-        return false;
-    }
+    // if (!umami) {
+    //     return false;
+    // }
 
-    umami.track(
-        event_name: 'Open Experience',
-        data: props.experience,
-    );
+    // umami.track(
+    //     event_name: 'Open Experience',
+    //     data: props.experience,
+    // );
 }
 
 const enter = (element: Element) => {
