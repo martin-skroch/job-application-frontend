@@ -15,6 +15,16 @@ if [ "$NODE_ENV" == "development" ]; then
     exit
 fi
 
+git fetch origin master
+
+LOCAL=$(git rev-parse HEAD)
+REMOTE=$(git rev-parse origin/master)
+
+if [ "$LOCAL" == "$REMOTE" ]; then
+    echo "✅ Already up to date. No deployment needed."
+    exit 0
+fi
+
 git reset --hard
 git clean -d -f
 git pull origin master --rebase
