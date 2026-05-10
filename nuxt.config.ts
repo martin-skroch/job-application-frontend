@@ -39,7 +39,7 @@ export default defineNuxtConfig({
             ],
             script: [
                 {
-                    'src': 'https://analytics.novusidea.de/script.js',
+                    'src': 'https://stats.skroch.de/script.js',
                     'data-website-id': '1af575ca-6cf1-4164-aa48-8a8ab6de09db',
                     'data-domains': 'martin.skroch.de',
                     'data-do-not-track': true,
