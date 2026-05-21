@@ -149,11 +149,11 @@ onMounted(async () => {
                         <a :href="application.source" target="_blank" rel="noopener" :title="application.source" class="truncate">{{ extractDomain(application.source) }}</a>
                     </div>
 
-                    <div v-if="typeof application?.company === 'string'" class="flex items-center gap-2">
+                    <!-- <div v-if="typeof application?.company === 'string'" class="flex items-center gap-2">
                         <span class="inline-flex items-center gap-1"><Icon name="ph:building-office-duotone" class="shrink-0" /> Firmenname</span>
                         <span class="grow border-b border-dashed border-current/50 min-w-8"></span>
                         <span class="truncate" title="{{ application.company }}">{{ application.company }}</span>
-                    </div>
+                    </div> -->
 
                     <div v-if="application?.salary_desire" class="flex items-center gap-2">
                         <span class="inline-flex items-center gap-1"><Icon name="ph:money-duotone" class="shrink-0" /> Gehaltswunsch<small class="text-current/60">(Brutto/Jahr)</small></span>
