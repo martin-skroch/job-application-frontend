@@ -152,7 +152,7 @@ onMounted(async () => {
                     <div v-if="typeof application?.company === 'string'" class="flex items-center gap-2">
                         <span class="inline-flex items-center gap-1"><Icon name="ph:building-office-duotone" class="shrink-0" /> Firmenname</span>
                         <span class="grow border-b border-dashed border-current/50 min-w-8"></span>
-                        <span class="truncate">{{ application.company }}</span>
+                        <span class="truncate" title="{{ application.company }}">{{ application.company }}</span>
                     </div>
 
                     <div v-if="application?.salary_desire" class="flex items-center gap-2">
