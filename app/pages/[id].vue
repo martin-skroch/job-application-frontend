@@ -158,7 +158,7 @@ onMounted(async () => {
                     <div v-if="application?.earliest_entry_date" class="flex items-center gap-2 text-sm">
                         <span class="inline-flex items-center gap-1"><Icon name="ph:calendar-dot-duotone" /> Eintrittstermin<small class="text-current/60">(frühestmöglich)</small></span>
                         <span class="grow border-b border-dashed border-current/50"></span>
-                        <span>{{ moment(application.earliest_entry_date).format('DD. MMMM YYYY') }}</span>
+                        <span>{{ moment(application.earliest_entry_date).format('DD.MM.YYYY') }}</span>
                     </div>
                 </div>
             </div>
