@@ -135,6 +135,10 @@ onMounted(async () => {
                     </AppHeading>
                 </div>
 
+                <div v-if="typeof application.text === 'string'" class="leading-normal text-center">
+                    <p v-html="application.text.replace(/(?:\r\n|\r|\n)/g, '<br>')"></p>
+                </div>
+
                 <div v-if="application?.salary_desire || application?.earliest_entry_date" class="max-w-md mx-auto space-y-2 text-center">
                     <!-- <div v-if="typeof application?.source === 'string'" class="flex items-center gap-2 text-sm">
                         <span class="inline-flex items-center gap-1"><Icon name="ph:binoculars-duotone" />Stellenausschreibung</span>
@@ -156,10 +160,6 @@ onMounted(async () => {
                         <span class="grow border-b border-dashed border-current/50"></span>
                         <span>{{ moment(application.earliest_entry_date).format('DD. MMMM YYYY') }}</span>
                     </div>
-                </div>
-
-                <div v-if="typeof application.text === 'string'" class="leading-normal text-center">
-                    <p v-html="application.text.replace(/(?:\r\n|\r|\n)/g, '<br>')"></p>
                 </div>
             </div>
         </AppSection>
