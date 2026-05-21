@@ -142,26 +142,29 @@ onMounted(async () => {
                     <p v-html="application.text.replace(/(?:\r\n|\r|\n)/g, '<br>')"></p>
                 </div>
 
-                <div v-if="application?.salary_desire || application?.earliest_entry_date" class="max-w-md mx-auto space-y-2 text-center">
-                    <div v-if="typeof application?.source === 'string'" class="flex items-center gap-2 text-sm">
-                        <span class="inline-flex items-center gap-1"><Icon name="ph:binoculars-duotone" />Ihre Stellenausschreibung</span>
-                        <span class="grow border-b border-dashed border-current/50"></span>
-                        <a :href="application.source" target="_blank" rel="noopener" :title="application.source">{{ extractDomain(application.source) }}</a>
+                <div v-if="application?.salary_desire || application?.earliest_entry_date" class="max-w-md mx-auto space-y-2  text-sm text-center whitespace-nowrap">
+                    <div v-if="typeof application?.source === 'string'" class="flex items-center gap-2">
+                        <span class="inline-flex items-center gap-1"><Icon name="ph:binoculars-duotone" class="shrink-0" /> Stellenausschreibung</span>
+                        <span class="grow border-b border-dashed border-current/50 min-w-8"></span>
+                        <a :href="application.source" target="_blank" rel="noopener" :title="application.source" class="truncate">{{ extractDomain(application.source) }}</a>
                     </div>
-                    <div v-if="typeof application?.company === 'string'" class="flex items-center gap-2 text-sm">
-                        <span class="inline-flex items-center gap-1"><Icon name="ph:building-office-duotone" /> Ihr Firma</span>
-                        <span class="grow border-b border-dashed border-current/50"></span>
-                        <span>{{ application.company }}</span>
+
+                    <div v-if="typeof application?.company === 'string'" class="flex items-center gap-2">
+                        <span class="inline-flex items-center gap-1"><Icon name="ph:building-office-duotone" class="shrink-0" /> Firmenname</span>
+                        <span class="grow border-b border-dashed border-current/50 min-w-8"></span>
+                        <span class="truncate">{{ application.company }}</span>
                     </div>
-                    <div v-if="application?.salary_desire" class="flex items-center gap-2 text-sm">
-                        <span class="inline-flex items-center gap-1"><Icon name="ph:money-duotone" /> Gehaltswunsch<small class="text-current/60">(Brutto/Jahr)</small></span>
-                        <span class="grow border-b border-dashed border-current/50"></span>
-                        <span>{{ application.salary_desire }}</span>
+
+                    <div v-if="application?.salary_desire" class="flex items-center gap-2">
+                        <span class="inline-flex items-center gap-1"><Icon name="ph:money-duotone" class="shrink-0" /> Gehaltswunsch<small class="text-current/60">(Brutto/Jahr)</small></span>
+                        <span class="grow border-b border-dashed border-current/50 min-w-8"></span>
+                        <span class="truncate">{{ application.salary_desire }}</span>
                     </div>
-                    <div v-if="application?.earliest_entry_date" class="flex items-center gap-2 text-sm">
-                        <span class="inline-flex items-center gap-1"><Icon name="ph:calendar-dot-duotone" /> Eintrittstermin<small class="text-current/60">(frühestmöglich)</small></span>
-                        <span class="grow border-b border-dashed border-current/50"></span>
-                        <span>{{ moment(application.earliest_entry_date).format('L') }}</span>
+
+                    <div v-if="application?.earliest_entry_date" class="flex items-center gap-2">
+                        <span class="inline-flex items-center gap-1"><Icon name="ph:calendar-dot-duotone" class="shrink-0" /> Eintrittstermin<small class="text-current/60">(frühestmöglich)</small></span>
+                        <span class="grow border-b border-dashed border-current/50 min-w-8"></span>
+                        <span class="truncate">{{ moment(application.earliest_entry_date).format('L') }}</span>
                     </div>
                 </div>
             </div>
