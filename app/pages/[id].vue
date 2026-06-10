@@ -122,9 +122,9 @@ onMounted(async () => {
     <div v-if="!loading">
         <AppHero id="einleitung" :scroll-target="typeof application?.text === 'string' ? 'anschreiben' : 'werdegang'" :application="application" />
 
-        <AppSection v-if="typeof application?.text === 'string'" id="anschreiben" class="shadow-[0_0_30rem_0rem_#0007] bg-primary text-secondary">
+        <AppSection v-if="typeof application?.text === 'string' || application?.contents" id="anschreiben" class="shadow-[0_0_30rem_0rem_#0007] bg-primary text-secondary">
             <div class="max-w-2xl mx-auto space-y-10 text-center">
-                <div class="space-y-2">
+                <!-- <div class="space-y-2">
                     <AppHeading v-if="typeof application?.company === 'string'" class="font-sans">
                         Bewerbung als
                     </AppHeading>
@@ -136,24 +136,25 @@ onMounted(async () => {
                     <AppHeading v-if="typeof application?.company === 'string'" tag="h3" class="font-sans">
                         bei <span class="font-bold">{{ application.company }}</span>
                     </AppHeading>
-                </div>
+                </div> -->
 
                 <div v-if="typeof application.text === 'string'" class="leading-normal text-center">
                     <p v-html="application.text.replace(/(?:\r\n|\r|\n)/g, '<br>')"></p>
                 </div>
 
-                <div v-if="application?.salary_desire || application?.earliest_entry_date" class="max-w-md mx-auto space-y-2  text-sm text-center whitespace-nowrap">
+                <div v-else v-for="content in application?.contents" class="text-start">
+                    <div class="md:col-span-3 space-y-4">
+                        <AppHeading tag="h3" class="font-sans text-2xl md:text-4xl">{{ content.heading }}</AppHeading>
+                        <p v-html="content.text.replace(/(?:\r\n|\r|\n)/g, '<br>')"></p>
+                    </div>
+                </div>
+
+                <div v-if="application?.salary_desire || application?.earliest_entry_date" class="mx-auto mt-4 space-y-2 text-sm text-center whitespace-nowrap">
                     <div v-if="typeof application?.source === 'string'" class="flex items-center gap-2">
                         <span class="inline-flex items-center gap-1"><Icon name="ph:binoculars-duotone" class="shrink-0" /> Stellenausschreibung</span>
                         <span class="grow border-b border-dashed border-current/50 min-w-8"></span>
                         <a :href="application.source" target="_blank" rel="noopener" :title="application.source" class="truncate">{{ extractDomain(application.source) }}</a>
                     </div>
-
-                    <!-- <div v-if="typeof application?.company === 'string'" class="flex items-center gap-2">
-                        <span class="inline-flex items-center gap-1"><Icon name="ph:building-office-duotone" class="shrink-0" /> Firmenname</span>
-                        <span class="grow border-b border-dashed border-current/50 min-w-8"></span>
-                        <span class="truncate" title="{{ application.company }}">{{ application.company }}</span>
-                    </div> -->
 
                     <div v-if="application?.salary_desire" class="flex items-center gap-2">
                         <span class="inline-flex items-center gap-1"><Icon name="ph:money-duotone" class="shrink-0" /> Gehaltswunsch<small class="text-current/60">(Brutto/Jahr)</small></span>

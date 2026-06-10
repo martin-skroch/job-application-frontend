@@ -16,13 +16,9 @@ onMounted(() => {
         <div class="max-w-md mx-auto space-y-8 text-center">
             <AppAvatar class="size-26 border-5 mx-auto" />
 
-            <div class="space-y-6">
-                <AppHeading class="font-sans font-light text-[clamp(1rem,2dvw,1.2rem)]">
-                    Hallo, ich bin
-                </AppHeading>
-
-                <AppHeading tag="h1" class="font-bold text-[clamp(2.5rem,4dvw,3rem)] leading-none! text-primary">
-                    {{ profile.name }}
+            <div class="space-y-3">
+                <AppHeading tag="h1" class="leading-relaxed! text-[clamp(1rem,2dvw,1.2rem)]">
+                    Hallo, ich bin <span class="font-bold  text-primary">{{ profile.name }}</span> und freue mich, Ihnen auf dieser Seite einen Einblick in meine Onlinebewerbung als <span class="font-bold leading-none! text-primary">{{ application?.title }}</span> bei <span class="font-bold leading-none! text-primary">{{ application?.company }}</span> zu geben.
                 </AppHeading>
 
                 <slot />
