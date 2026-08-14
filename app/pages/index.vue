@@ -2,8 +2,9 @@
 import type { Profile, Skill } from '~/types'
 
 const { apiUrl, apiKey } = useRuntimeConfig().public;
-const { setProfile } = useProfile();
+const { profile, setProfile } = useProfile();
 
+const jobTitle = 'Full Stack Web Developer';
 const skills = ref<Skill[]>([]);
 const loading = ref<boolean>(false);
 const error = ref<string | null>(null);
@@ -55,8 +56,8 @@ onMounted(async () => {
     </Transition>
 
     <template v-if="!loading">
-        <AppHero>
-            <AppHeading tag="h2" class="text-[clamp(1.4rem,3dvw,1.8rem)]">Full Stack Web Developer</AppHeading>
+        <AppHero :jobTitle="jobTitle">
+            <!-- <AppHeading tag="h2" class="text-[clamp(1.4rem,3dvw,1.8rem)]">{{ jobTitle }}</AppHeading> -->
         </AppHero>
 
         <AppSection v-if="skills.length > 0" id="faehigkeiten" heading="Fähigkeiten" class="bg-primary text-secondary ">
